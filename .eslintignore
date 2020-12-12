@@ -1,0 +1,5 @@
+docs/*
+test/js/jest.config.js
+test/js/jest.setup.js
+webpack.config.js
+package.json

@@ -1,0 +1,83 @@
+{
+  "name": "niram-color-picker",
+  "version": "1.1.0",
+  "description": "A more substantial color picker",
+  "scripts": {
+    "lint": "sh lint.sh",
+    "lintfix": "sh lint.sh -f",
+    "lintstaged": "sh lint.sh -s",
+    "lintstagedfix": "sh lint.sh -s -f",
+    "testonly": "jest --no-cache --config test/js/jest.config.js",
+    "test": "yarn run lint && yarn run testonly",
+    "dev": "NODE_ENV=development webpack-dev-server --open --debug --output-pathinfo",
+    "build": "rm -rf ./docs && NODE_ENV=production webpack --config webpack.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lintstaged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhchand/niram-color-picker.git"
+  },
+  "keywords": [
+    "color",
+    "picker",
+    "palette"
+  ],
+  "author": "Abhishek Chandrasekhar <me@abhchand.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhchand/niram-color-picker/issues"
+  },
+  "homepage": "https://github.com/abhchand/niram-color-picker#README",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
+    "copy-webpack-plugin": "^6.3.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "husky": "^4.3.5",
+    "jest": "^24.8.0",
+    "jest-canvas-mock": "^2.3.0",
+    "prettier": "^2.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-webpack-plugin": "^1.0.2",
+    "webpack-dev-server": "^3.8.2",
+    "yarn": "^1.22.10"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "core-js": "3",
+    "css-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.0.0-alpha.14",
+    "mini-css-extract-plugin": "0.10.0",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^16.4.0",
+    "sass-loader": "^9.0.2",
+    "webpack": "^5.2.0",
+    "webpack-cli": "3.3.12"
+  }
+}

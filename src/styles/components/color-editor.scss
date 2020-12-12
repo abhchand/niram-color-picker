@@ -1,0 +1,104 @@
+.color-editor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 20px 40px;
+  border: 2px $blue solid;
+  border-radius: 10px;
+}
+.color-editor__model-selector {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-bottom: 30px;
+  label {
+    margin-right: 15px;
+  }
+}
+.color-editor__color-value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 50%;
+  height: 120px;
+  margin-bottom: 30px;
+
+  input {
+    width: 105px;
+    margin: 0 5px 0 0;
+  }
+}
+.color-editor__preview {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+  height: 120px;
+}
+.color-editor__preview-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+}
+.color-editor__reset {
+}
+.color-editor__color-cell {
+  width: 120px;
+  height: 120px;
+  margin: 0 10px;
+  border-radius: 10px;
+  border: 1px $blue solid;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.color-editor__luminance-btn {
+}
+.color-editor__luminance-btn--brighten {
+}
+.color-editor__luminance-btn--darken {
+}
+.color-editor__luminance-btn-placeholder {
+  width: 50px;
+}
+.color-editor__color-picker-modal {
+  button {
+    margin-right: 10px;
+  }
+
+  .chrome-picker {
+    margin: 0 auto;
+    // Override library styling
+    box-shadow: none !important;
+  }
+}
+.color-editor__modal-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .color-editor__model-selector {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .color-editor__color-value {
+    width: 100%;
+  }
+
+  .color-editor__preview {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

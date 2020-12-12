@@ -1,0 +1,35 @@
+.color-grid {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th[data-id='400'], td[data-id='400'] {
+    background-color: $gray;
+  }
+
+  thead {
+    height: 50px;
+
+    th[data-id='400'] {
+      color: $orange;
+    }
+  }
+}
+.color-grid__row {
+  height: 75px;
+
+  .label {
+    width: 100px;
+  }
+}
+.color-grid__color-cell {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.color-grid__color-cell--selected {
+  box-sizing: border-box;
+  border: 5px solid #003057;
+}

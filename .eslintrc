@@ -1,0 +1,105 @@
+{
+  extends: [
+    "eslint:all",                       // List of rules: https://eslint.org/docs/rules
+    "plugin:react/all",                 // List of rules: https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
+    "plugin:jsx-a11y/strict",           // List of rules: https://github.com/evcohen/eslint-plugin-jsx-a11y#supported-rules,
+    "prettier",                         // Configuration: https://github.com/prettier/eslint-config-prettier
+    "prettier/react"                    // Configuration: https://github.com/prettier/eslint-config-prettier/blob/master/react.js
+  ],
+  env: {
+    browser: true,
+    node: true,
+    jquery: true,
+    es6: true
+  },
+  parser: "babel-eslint",
+  parserOptions: {
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+      impliedStrict: true
+    }
+  },
+  plugins: [
+    "react",
+    "jsx-a11y"
+  ],
+  settings: {
+    react: {
+      version: '16.9.11'
+    }
+  },
+  rules: {
+    arrow-body-style:                       "off",
+    capitalized-comments:                   "warn",
+    consistent-this:                        "off",
+    default-case:                           ["warn", { "commentPattern": "^eslint\\sskip\\sdefault" }],
+    eqeqeq:                                 ["error", "smart"],
+    func-style:                             ["error", "declaration", { allowArrowFunctions: true }],
+    function-call-argument-newline:         "off",
+    id-length:                              "off",
+    init-declarations:                      "off",
+    max-lines-per-function:                 "off",
+    max-statements-per-line:                "off",
+    max-statements:                         "off",
+    multiline-ternary:                      "off",
+    no-continue:                            "off",
+    no-inline-comments:                     "warn",
+    no-magic-numbers:                       "off",
+    no-plusplus:                            ["warn", { "allowForLoopAfterthoughts": true }],
+    no-ternary:                             "off",
+    no-throw-literal:                       "off",
+    no-underscore-dangle:                   "off",
+    no-unused-vars:                         ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+    object-shorthand:                       "off",
+    one-var:                                "off",
+    prefer-destructuring:                   "off",
+    react/destructuring-assignment:         "off",
+    react/forbid-prop-types:                "off",
+    react/jsx-filename-extension:           "warn",
+    react/jsx-handler-names:                "off",
+    react/jsx-max-depth:                    "off",
+    react/jsx-max-props-per-line:           "off",
+    react/jsx-no-bind:                      ["error", { allowArrowFunctions: true }],
+    react/jsx-no-literals:                  "off",
+    react/jsx-one-expression-per-line:      "off",
+    react/jsx-sort-props:                   "off",
+    react/no-set-state:                     "off",
+    react/require-default-props:            "off",
+    react/require-optimization:             "off",
+    react/sort-prop-types:                  "off",
+    sort-imports:                           ["warn", { ignoreCase: true }],
+    sort-keys:                              "off"
+  },
+  overrides: [
+    {
+      files: [
+        "**/*.jsx"
+      ],
+      rules: {
+        "class-methods-use-this":           "off"
+      }
+    },
+    {
+      files: [
+        "**/*.spec.js",
+        "**/*.spec.jsx"
+      ],
+      env: {
+        jest: true
+      }
+    },
+    {
+      files: [
+        "test/**/*.js",
+        "test/**/*.jsx"
+      ],
+      rules: {
+        max-lines:                          "off",
+        no-use-before-define:               "off",
+        no-undefined:                       "off",
+        react/jsx-props-no-spreading:       "off"
+      }
+    }
+  ]
+}

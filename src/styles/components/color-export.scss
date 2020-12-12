@@ -1,0 +1,17 @@
+.color-export__export {
+  width: 175px;
+  margin-top: 50px;
+}
+.color-export__modal {
+}
+.color-export__scss {
+  height: 200px;
+  margin-bottom: 25px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 1em;
+  white-space: nowrap;
+  background-color: $gray;
+  border: 2px $darkgray solid;
+}
