@@ -1,8 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { copyTextToClipboard } from 'helpers/clipboard';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
 
-const CopyToClipboard = (props) => {
+function CopyToClipboard(props) {
   const [showCheck, setShowCheck] = useState(false);
   useEffect(() => {
     setShowCheck(false);
@@ -18,11 +18,11 @@ const CopyToClipboard = (props) => {
   };
 
   return (
-    <button className='copy-to-clipboard' onClick={onClick}>
+    <button type='button' className='copy-to-clipboard' onClick={onClick}>
       {showCheck ? '✅' : 'COPY'}
     </button>
   );
-};
+}
 
 CopyToClipboard.propTypes = {
   text: PropTypes.string.isRequired,
