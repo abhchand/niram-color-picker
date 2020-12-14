@@ -2,6 +2,7 @@ import {
   RESET_SELECTED_COLOR,
   UPDATE_SELECTED_COLOR
 } from 'components/event-bus/events';
+import { clickResetColorBtn } from 'js/helpers/components/color-editor/buttons';
 import ColorEditor from 'components/color-editor';
 import eventBus from 'components/event-bus';
 import { expect } from 'chai';
@@ -10,10 +11,10 @@ import { mockEventEmit } from 'js/support/mocks/event-bus';
 import { mount } from 'enzyme';
 import React from 'react';
 
-let color, wrapper;
+let color;
 
 afterEach(() => {
-  wrapper.unmount();
+  global.wrapper.unmount();
 });
 
 describe('Resetting Color', () => {
@@ -22,14 +23,14 @@ describe('Resetting Color', () => {
 
     color = new HSLColor(180, 0.4, 0.5);
     eventBus.emit(UPDATE_SELECTED_COLOR, color);
-    wrapper.update();
+    global.wrapper.update();
   });
 
   describe('on click', () => {
     it(`emits the ${RESET_SELECTED_COLOR} event`, () => {
       const mockEmit = mockEventEmit();
 
-      resetColor();
+      clickResetColorBtn();
 
       const calls = mockEmit.mock.calls;
       expect(calls.length).to.equal(1);
@@ -38,13 +39,9 @@ describe('Resetting Color', () => {
   });
 });
 
-const resetColor = () => {
-  wrapper.find('.color-editor__reset button').at(0).simulate('click');
-};
-
 const renderComponent = (additionalProps = {}) => {
   const fixedProps = {};
   const props = { ...fixedProps, ...additionalProps };
 
-  wrapper = mount(<ColorEditor {...props} />);
+  global.wrapper = mount(<ColorEditor {...props} />);
 };

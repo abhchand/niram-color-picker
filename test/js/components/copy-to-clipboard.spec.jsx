@@ -1,16 +1,20 @@
 import * as ClipboardHelpers from 'helpers/clipboard';
+import {
+  clickCopyToClipboardBtn,
+  copyToClipboardBtn
+} from 'js/helpers/components/color-editor/buttons';
 import { act } from 'react-dom/test-utils';
 import CopyToClipboard from 'components/copy-to-clipboard';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import React from 'react';
 
-let mockCopyTextToClipboard, text, wrapper;
+let mockCopyTextToClipboard, text;
 
 jest.useFakeTimers();
 
 afterEach(() => {
-  wrapper.unmount();
+  global.wrapper.unmount();
   jest.clearAllTimers();
 });
 
@@ -33,7 +37,7 @@ describe('Copying to Clipboard', () => {
   describe('on click', () => {
     it('copies text to the clipboard', () => {
       renderComponent();
-      copyToClipboardBtn().simulate('click');
+      clickCopyToClipboardBtn();
 
       const calls = mockCopyTextToClipboard.mock.calls;
       expect(calls.length).to.equal(1);
@@ -45,7 +49,7 @@ describe('Copying to Clipboard', () => {
 
       expect(copyToClipboardBtn()).to.have.text('COPY');
 
-      copyToClipboardBtn().simulate('click');
+      clickCopyToClipboardBtn();
       expect(copyToClipboardBtn()).to.have.text('✅');
 
       act(() => jest.advanceTimersByTime(1000));
@@ -55,7 +59,7 @@ describe('Copying to Clipboard', () => {
     describe('passing `fallbackOnPrompt` option', () => {
       it('defaults to true', () => {
         renderComponent();
-        copyToClipboardBtn().simulate('click');
+        clickCopyToClipboardBtn();
 
         const calls = mockCopyTextToClipboard.mock.calls;
         expect(calls.length).to.equal(1);
@@ -64,7 +68,7 @@ describe('Copying to Clipboard', () => {
 
       it('can be overridden', () => {
         renderComponent({ fallbackOnPrompt: false });
-        copyToClipboardBtn().simulate('click');
+        clickCopyToClipboardBtn();
 
         const calls = mockCopyTextToClipboard.mock.calls;
         expect(calls.length).to.equal(1);
@@ -74,13 +78,9 @@ describe('Copying to Clipboard', () => {
   });
 });
 
-const copyToClipboardBtn = () => {
-  return wrapper.find('.copy-to-clipboard').at(0);
-};
-
 const renderComponent = (additionalProps = {}) => {
   const fixedProps = { text: text };
   const props = { ...fixedProps, ...additionalProps };
 
-  wrapper = mount(<CopyToClipboard {...props} />);
+  global.wrapper = mount(<CopyToClipboard {...props} />);
 };
