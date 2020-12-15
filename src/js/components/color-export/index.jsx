@@ -41,6 +41,8 @@ class ColorExport extends React.Component {
   }
 
   render() {
+    if (this.state.gradients === null) { return null; }
+
     return (
       <div className='color-export'>
         <button className='color-export__export' onClick={this.openModal}>
