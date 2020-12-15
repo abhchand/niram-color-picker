@@ -12,6 +12,8 @@ class ColorExport extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.renderModal = this.renderModal.bind(this);
 
+    this.eventUnsubscribes = [];
+
     this.state = {
       isModalOpen: false,
       gradients: null
@@ -19,7 +21,15 @@ class ColorExport extends React.Component {
   }
 
   componentDidMount() {
-    eventBus.on(COLOR_GRID_UPDATED, (g) => this.setState({ gradients: g }));
+    const unsubscribe = eventBus.on(COLOR_GRID_UPDATED, (newColorGrid) =>
+      this.setState({ gradients: newColorGrid })
+    );
+
+    this.eventUnsubscribes.push(unsubscribe);
+  }
+
+  componentWillUnmount() {
+    this.eventUnsubscribes.forEach((u) => u());
   }
 
   openModal() {
@@ -41,7 +51,9 @@ class ColorExport extends React.Component {
   }
 
   render() {
-    if (this.state.gradients === null) { return null; }
+    if (this.state.gradients === null) {
+      return null;
+    }
 
     return (
       <div className='color-export'>
