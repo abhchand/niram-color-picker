@@ -30,10 +30,6 @@ class ExportModal extends React.Component {
     const { gradients } = this.props;
     const { colorModel } = this.state;
 
-    if (gradients === null) {
-      return null;
-    }
-
     const scss = toScss(gradients, colorModel);
 
     return (
