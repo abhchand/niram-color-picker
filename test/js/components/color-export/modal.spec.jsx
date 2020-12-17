@@ -4,7 +4,7 @@ import {
   closeExportModal,
   openExportModal,
   openExportModalBtn
-} from 'js/helpers/components/color-export/modal';
+} from 'js/support/components/color-export/modal';
 import {
   generateColorGradients,
   generateGrayGradients

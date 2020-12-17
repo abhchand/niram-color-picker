@@ -2,17 +2,17 @@ import {
   assertPreviewColor,
   clickBrightenBtn,
   clickDarkenBtn
-} from 'js/helpers/components/color-editor/color-preview';
+} from 'js/support/components/color-editor/color-preview';
 import {
   closeColorPicker,
   openColorPicker,
   setColorPicker,
   submitColorPicker
-} from 'js/helpers/components/color-editor/color-picker';
+} from 'js/support/components/color-editor/color-picker';
 import {
   getHSLInputValues,
   selectColorModel
-} from 'js/helpers/components/color-editor/color-value';
+} from 'js/support/components/color-editor/color-value';
 import {
   OVERRIDE_SELECTED_COLOR,
   UPDATE_SELECTED_COLOR

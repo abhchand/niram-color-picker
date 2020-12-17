@@ -2,7 +2,7 @@ import * as ClipboardHelpers from 'helpers/clipboard';
 import {
   clickCopyToClipboardBtn,
   copyToClipboardBtn
-} from 'js/helpers/components/color-editor/buttons';
+} from 'js/support/components/color-editor/buttons';
 import { act } from 'react-dom/test-utils';
 import CopyToClipboard from 'components/copy-to-clipboard';
 import { expect } from 'chai';

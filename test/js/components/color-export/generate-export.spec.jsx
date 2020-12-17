@@ -3,7 +3,7 @@ import {
   clickCopyToClipboardBtn,
   exportedSCSSText,
   selectColorModel
-} from 'js/helpers/components/color-export/export';
+} from 'js/support/components/color-export/export';
 import {
   generateColorGradients,
   generateGrayGradients
@@ -15,7 +15,7 @@ import { expect } from 'chai';
 import HexColor from 'models/hex-color';
 import HSLColor from 'models/hsl-color';
 import { mount } from 'enzyme';
-import { openExportModal } from 'js/helpers/components/color-export/modal';
+import { openExportModal } from 'js/support/components/color-export/modal';
 import React from 'react';
 import RGBColor from 'models/rgb-color';
 

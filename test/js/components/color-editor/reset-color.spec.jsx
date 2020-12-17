@@ -2,7 +2,7 @@ import {
   RESET_SELECTED_COLOR,
   UPDATE_SELECTED_COLOR
 } from 'components/event-bus/events';
-import { clickResetColorBtn } from 'js/helpers/components/color-editor/buttons';
+import { clickResetColorBtn } from 'js/support/components/color-editor/buttons';
 import ColorEditor from 'components/color-editor';
 import eventBus from 'components/event-bus';
 import { expect } from 'chai';

@@ -4,12 +4,12 @@ import {
   getRGBInputValues,
   selectColorModel,
   setInputValue
-} from 'js/helpers/components/color-editor/color-value';
+} from 'js/support/components/color-editor/color-value';
 import {
   OVERRIDE_SELECTED_COLOR,
   UPDATE_SELECTED_COLOR
 } from 'components/event-bus/events';
-import { assertPreviewColor } from 'js/helpers/components/color-editor/color-preview';
+import { assertPreviewColor } from 'js/support/components/color-editor/color-preview';
 import ColorEditor from 'components/color-editor';
 import eventBus from 'components/event-bus';
 import { expect } from 'chai';
