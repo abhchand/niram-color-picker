@@ -21,11 +21,11 @@ const toValue = (color, colorModel) => {
   }
 };
 
-const toScss = (gradients, colorModel) => {
-  let lines = [];
+const toScss = (colorGrid, colorModel) => {
+  const lines = [];
 
   ['primary', 'neutral', 'accent'].forEach((gradientType) => {
-    gradients[gradientType].forEach((gradient, gradientIdx) => {
+    (colorGrid[gradientType] || []).forEach((gradient, gradientIdx) => {
       gradient.forEach((color, positionIdx) => {
         const name = `${gradientType}_${gradientIdx}_${
           (positionIdx + 1) * 100
@@ -42,7 +42,7 @@ const toScss = (gradients, colorModel) => {
  */
 
 ${lines.join('\n')}
-  `;
+`;
 };
 
 export { toScss };
