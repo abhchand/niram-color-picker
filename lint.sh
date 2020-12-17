@@ -42,7 +42,7 @@ HAS_FILES=0
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
   FILES=""
-  for file in $(git diff --diff-filter=d --cached --name-only | grep ".js"); do
+  for file in $(git diff --diff-filter=d --cached --name-only | grep "\.js"); do
     FILES="${FILES} $file"
     HAS_FILES=1
   done
@@ -65,7 +65,7 @@ HAS_FILES=0
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
   FILES=""
-  for file in $(git diff --diff-filter=d --cached --name-only | grep ".js"); do
+  for file in $(git diff --diff-filter=d --cached --name-only | grep "\.js"); do
     FILES="${FILES} $file"
     HAS_FILES=1
   done
@@ -88,7 +88,7 @@ HAS_FILES=0
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
   FILES=""
-  for file in $(git diff --diff-filter=d --cached --name-only | grep ".scss"); do
+  for file in $(git diff --diff-filter=d --cached --name-only | grep "\.scss"); do
     FILES="${FILES} $file"
     HAS_FILES=1
   done
