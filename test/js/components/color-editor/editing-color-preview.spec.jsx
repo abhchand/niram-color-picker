@@ -1,8 +1,8 @@
 import {
-  assertColorPicker,
+  assertColorPickerValue,
   closeColorPicker,
   openColorPicker,
-  setColorPicker,
+  setColorPickerValue,
   submitColorPicker
 } from 'js/support/components/color-editor/color-picker';
 import {
@@ -197,14 +197,14 @@ describe('Editing Color Preview', () => {
   describe('color picker', () => {
     it('has the correct color picker value', () => {
       openColorPicker();
-      assertColorPicker(color);
+      assertColorPickerValue(color);
     });
 
     it('user can select a new color', async () => {
       const newColor = new HSLColor(22, 0.1, 0.9);
 
       openColorPicker();
-      await setColorPicker(newColor);
+      await setColorPickerValue(newColor);
       submitColorPicker();
 
       assertPreviewColor(newColor);
@@ -215,7 +215,7 @@ describe('Editing Color Preview', () => {
       const mockEmit = mockEventEmit();
 
       openColorPicker();
-      await setColorPicker(newColor);
+      await setColorPickerValue(newColor);
       submitColorPicker();
 
       const calls = mockEmit.mock.calls;
@@ -230,7 +230,7 @@ describe('Editing Color Preview', () => {
       const newColor = new HSLColor(22, 0.1, 0.9);
 
       openColorPicker();
-      await setColorPicker(newColor);
+      await setColorPickerValue(newColor);
       closeColorPicker();
 
       assertPreviewColor(color);
@@ -239,7 +239,7 @@ describe('Editing Color Preview', () => {
     describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
       it('updates the color picker value', () => {
         openColorPicker();
-        assertColorPicker(color);
+        assertColorPickerValue(color);
         closeColorPicker();
 
         const newColor = new HSLColor(180, 0, 1);
@@ -247,7 +247,7 @@ describe('Editing Color Preview', () => {
         global.wrapper.update();
 
         openColorPicker();
-        assertColorPicker(newColor);
+        assertColorPickerValue(newColor);
       });
     });
   });

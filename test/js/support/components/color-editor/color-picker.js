@@ -12,13 +12,13 @@ const openColorPicker = () => {
   global.wrapper.find('.color-editor__color-cell').at(0).simulate('click');
 };
 
-const assertColorPicker = (color) => {
+const assertColorPickerValue = (color) => {
   expect(global.wrapper.find('.chrome-picker input').at(0)).to.have.value(
     `#${color.toHex().value()}`
   );
 };
 
-const setColorPicker = async (color) => {
+const setColorPickerValue = async (color) => {
   /*
    * The `react-color` library which provides the color picker
    * adds a 100ms debounce on the input to prevent duplicate
@@ -52,7 +52,7 @@ const submitColorPicker = () => {
 export {
   closeColorPicker,
   openColorPicker,
-  assertColorPicker,
-  setColorPicker,
+  assertColorPickerValue,
+  setColorPickerValue,
   submitColorPicker
 };
