@@ -29,8 +29,8 @@ const generateColorGradients = (count) => {
    * We do this by defining a fixed step between each
    * Hue as well as starting at a random non-zero point.
    */
-  const h_step = 360 / count;
-  const h_start = 360 * Math.random();
+  const hStep = 360 / count;
+  const hStart = 360 * Math.random();
 
   const gradients = [];
 
@@ -41,14 +41,14 @@ const generateColorGradients = (count) => {
      * the upper and lower bound for any hue as a small
      * range around each step.
      */
-    const h_lower = h_start + h_step * (i - 0.2),
-      h_upper = h_start + h_step * (i + 0.2);
+    const hLower = hStart + hStep * (i - 0.2),
+      hUpper = hStart + hStep * (i + 0.2);
     /*
      * Generate the base color, specifying the H, S, and L
      * bounds.
      */
     const baseColor = randomBoundedHSLColor({
-      h: [h_lower, h_upper],
+      h: [hLower, hUpper],
       s: [S_LOWER, S_UPPER],
       l: [L_LOWER, L_UPPER]
     });
