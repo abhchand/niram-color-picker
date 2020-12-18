@@ -71,7 +71,6 @@ function HSLValue(props) {
           name='color_component[l]'
           id='color_component_l'
         />
-        %
       </label>
     </div>
   );
