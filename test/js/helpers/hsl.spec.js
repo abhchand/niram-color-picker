@@ -61,6 +61,14 @@ describe('randomBoundedHSLColor()', () => {
       expect(hslColor.value().l).to.eql(0.2);
     });
 
+    it('wraps the hue value if too large', () => {
+      const hslColor = randomBoundedHSLColor({
+        h: [360, 370]
+      });
+
+      expect(hslColor.value().h).to.eql(0);
+    });
+
     describe('no bounds are specified', () => {
       it('uses the default lower bounds in generating a color', () => {
         const hslColor = randomBoundedHSLColor();
@@ -87,6 +95,14 @@ describe('randomBoundedHSLColor()', () => {
       expect(hslColor.value().h).to.eql(200);
       expect(hslColor.value().s).to.eql(0.6);
       expect(hslColor.value().l).to.eql(0.3);
+    });
+
+    it('wraps the hue value if too large', () => {
+      const hslColor = randomBoundedHSLColor({
+        h: [360, 370]
+      });
+
+      expect(hslColor.value().h).to.eql(10);
     });
 
     describe('no bounds are specified', () => {
