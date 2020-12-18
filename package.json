@@ -46,6 +46,7 @@
     "husky": "^4.3.5",
     "jest": "^24.8.0",
     "jest-canvas-mock": "^2.3.0",
+    "jest-mock-random": "^1.1.1",
     "prettier": "^2.2.1",
     "stylelint": "^13.8.0",
     "stylelint-config-rational-order": "^0.1.2",
