@@ -4,6 +4,7 @@ class Color {
 
     this.value = this.value.bind(this);
     this.equals = this.equals.bind(this);
+    this.toJSON = this.toJSON.bind(this);
   }
 
   value() {
@@ -15,6 +16,10 @@ class Color {
       return false;
     }
     return JSON.stringify(this._color) === JSON.stringify(otherColor.value());
+  }
+
+  toJSON() {
+    return this._color;
   }
 }
 
