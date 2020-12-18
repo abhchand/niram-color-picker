@@ -173,6 +173,39 @@ describe('Export Modal', () => {
       );
     });
   });
+
+  describe(`${COLOR_GRID_UPDATED} event is emittted`, () => {
+    beforeEach(() => {
+      // Manually set a single color for testing
+      color = new RGBColor(20, 30, 40);
+      colorGrid.primary[0].set(1, color);
+
+      // Update the component (again)
+      eventBus.emit(COLOR_GRID_UPDATED, colorGrid);
+      global.wrapper.update();
+
+      openExportModal();
+      selectColorModel('rgb');
+    });
+
+    it('updates the geneated SCSS content', () => {
+      expect(exportedSCSSText()).to.match(
+        /\$primary_0_200: rgb\(20, 30, 40\)/u
+      );
+
+      // Update the color
+      color = new RGBColor(120, 130, 140);
+      colorGrid.primary[0].set(1, color);
+
+      // Update the component
+      eventBus.emit(COLOR_GRID_UPDATED, colorGrid);
+      global.wrapper.update();
+
+      expect(exportedSCSSText()).to.match(
+        /\$primary_0_200: rgb\(120, 130, 140\)/u
+      );
+    });
+  });
 });
 
 const renderComponent = (additionalProps = {}) => {
