@@ -26,8 +26,10 @@ Linters will also run on each `git` commit.
 `lint`, `lintfix`, `lintstagedfix` can used to manually run linters acoss the full codebase or a subset of files.
 
 
-# Build
+# Build for Production
 
 ```
 yarn run build
+git add docs/ && git commit
+git push
 ```
