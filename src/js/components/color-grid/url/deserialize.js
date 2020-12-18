@@ -78,13 +78,14 @@ const deserializeOverrides = (params) => {
           continue;
         }
         stateKey = 'neutralOverrides';
-      default:
+        break;
 
       case 'a':
         if (idx >= NUM_ACCENT_GRADIENTS) {
           continue;
         }
         stateKey = 'accentOverrides';
+        break;
     }
 
     // Try to parse each token separated by '-' as a hex color
