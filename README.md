@@ -10,6 +10,22 @@ yarn install
 yarn run dev
 ```
 
+# Run Linters and Tests
+
+```
+yarn run test
+
+# or, separately:
+
+yarn run lint
+yarn run testonly
+```
+
+Linters will also run on each `git` commit.
+
+`lint`, `lintfix`, `lintstagedfix` can used to manually run linters acoss the full codebase or a subset of files.
+
+
 # Build
 
 ```
