@@ -1,5 +1,5 @@
-import { serializeGradients, serializeOverrides } from './serialize';
 import { deserializeGradients, deserializeOverrides } from './deserialize';
+import { serializeGradients, serializeOverrides } from './serialize';
 
 const setUrlFromState = (state) => {
   const gradients = serializeGradients(state);
@@ -8,7 +8,9 @@ const setUrlFromState = (state) => {
   const params = [['g', gradients].join('=')];
 
   for (const key in overrides) {
-    params.push([key, overrides[key]].join('='));
+    if (Object.prototype.hasOwnProperty.call(overrides, key)) {
+      params.push([key, overrides[key]].join('='));
+    }
   }
 
   const urlSegments = ['/', '?', params.join('&')];
@@ -20,6 +22,13 @@ const getStateFromUrl = () => {
   const params = {},
     search = new URLSearchParams(window.location.search);
   search.forEach((value, key) => (params[key] = value));
+
+  /*
+   * Check if params are null
+   */
+  if (Object.entries(params).length === 0) {
+    return null;
+  }
 
   /*
    * Check for and parse `g`, the gradient param, which must exist
