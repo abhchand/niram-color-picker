@@ -146,6 +146,25 @@ describe('Editing Color Value', () => {
         expect(getRGBInputValues()).to.eql({ r: 100, g: 120, b: 140 });
       });
     });
+
+    describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
+      it('updates the input values to the new color', async () => {
+        expect(getRGBInputValues()).to.eql({ r: 100, g: 120, b: 140 });
+
+        const newColor = new RGBColor(200, 220, 240);
+        eventBus.emit(UPDATE_SELECTED_COLOR, newColor);
+        global.wrapper.update();
+
+        /*
+         * There is a slight delay in updating the state and then the
+         * rendered DOM after emitting the event above. Wait 10ms before
+         * testing.
+         */
+        await setTimeout(10, () => {
+          expect(getRGBInputValues()).to.eql({ r: 200, g: 220, b: 240 });
+        });
+      });
+    });
   });
 
   describe('Hex is selected', () => {
@@ -228,6 +247,25 @@ describe('Editing Color Value', () => {
         // Validate the input values
 
         expect(getHexInputValues()).to.eql('AA11FF');
+      });
+    });
+
+    describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
+      it('updates the input values to the new color', async () => {
+        expect(getHexInputValues()).to.eql('AA11FF');
+
+        const newColor = new HexColor('F1F1F1');
+        eventBus.emit(UPDATE_SELECTED_COLOR, newColor);
+        global.wrapper.update();
+
+        /*
+         * There is a slight delay in updating the state and then the
+         * rendered DOM after emitting the event above. Wait 10ms before
+         * testing.
+         */
+        await setTimeout(10, () => {
+          expect(getHexInputValues()).to.eql('F1F1F1');
+        });
       });
     });
   });
@@ -329,6 +367,25 @@ describe('Editing Color Value', () => {
         // Validate the input values
 
         expect(getHSLInputValues()).to.eql({ h: 100, s: 0.4, l: 0.6 });
+      });
+    });
+
+    describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
+      it('updates the input values to the new color', async () => {
+        expect(getHSLInputValues()).to.eql({ h: 100, s: 0.4, l: 0.6 });
+
+        const newColor = new HSLColor(120, 0.3, 0.7);
+        eventBus.emit(UPDATE_SELECTED_COLOR, newColor);
+        global.wrapper.update();
+
+        /*
+         * There is a slight delay in updating the state and then the
+         * rendered DOM after emitting the event above. Wait 10ms before
+         * testing.
+         */
+        await setTimeout(10, () => {
+          expect(getHSLInputValues()).to.eql({ h: 120, s: 0.3, l: 0.7 });
+        });
       });
     });
   });

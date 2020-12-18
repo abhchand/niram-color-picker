@@ -1,14 +1,15 @@
 import {
-  assertPreviewColor,
-  clickBrightenBtn,
-  clickDarkenBtn
-} from 'js/support/components/color-editor/color-preview';
-import {
+  assertColorPicker,
   closeColorPicker,
   openColorPicker,
   setColorPicker,
   submitColorPicker
 } from 'js/support/components/color-editor/color-picker';
+import {
+  assertPreviewColor,
+  clickBrightenBtn,
+  clickDarkenBtn
+} from 'js/support/components/color-editor/color-preview';
 import {
   getHSLInputValues,
   selectColorModel
@@ -47,8 +48,22 @@ describe('Editing Color Preview', () => {
     global.wrapper.update();
   });
 
-  it('renders the color preview', () => {
-    assertPreviewColor(color);
+  describe('color preview', () => {
+    it('renders the color preview', () => {
+      assertPreviewColor(color);
+    });
+
+    describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
+      it('updates the color preview', () => {
+        assertPreviewColor(color);
+
+        const newColor = new HSLColor(180, 0, 1);
+        eventBus.emit(UPDATE_SELECTED_COLOR, newColor);
+        global.wrapper.update();
+
+        assertPreviewColor(newColor);
+      });
+    });
   });
 
   describe('clicking the darken button', () => {
@@ -179,7 +194,12 @@ describe('Editing Color Preview', () => {
     });
   });
 
-  describe('opening the color picker', () => {
+  describe('color picker', () => {
+    it('has the correct color picker value', () => {
+      openColorPicker();
+      assertColorPicker(color);
+    });
+
     it('user can select a new color', async () => {
       const newColor = new HSLColor(22, 0.1, 0.9);
 
@@ -214,6 +234,21 @@ describe('Editing Color Preview', () => {
       closeColorPicker();
 
       assertPreviewColor(color);
+    });
+
+    describe(`${UPDATE_SELECTED_COLOR} event is emittted`, () => {
+      it('updates the color picker value', () => {
+        openColorPicker();
+        assertColorPicker(color);
+        closeColorPicker();
+
+        const newColor = new HSLColor(180, 0, 1);
+        eventBus.emit(UPDATE_SELECTED_COLOR, newColor);
+        global.wrapper.update();
+
+        openColorPicker();
+        assertColorPicker(newColor);
+      });
     });
   });
 });
