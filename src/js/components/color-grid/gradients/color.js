@@ -63,8 +63,8 @@ const generateColorGradients = (count) => {
      * the upper and lower bound for any hue as a small
      * range around each step.
      */
-    const h_lower = (h_start + h_step * (i - 0.2)) % 360,
-      h_upper = (h_start + h_step * (i + 0.2)) % 360;
+    const h_lower = h_start + h_step * (i - 0.2),
+      h_upper = h_start + h_step * (i + 0.2);
     /*
      * Generate the base color, specifying the H, S, and L
      * bounds.

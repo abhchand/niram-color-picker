@@ -75,7 +75,7 @@ const randomBoundedHSLColor = (bounds = { h: [], s: [], l: [] }) => {
   const lL = (bounds.l || [])[0] || 0,
     lU = (bounds.l || [])[1] || 1;
   // Generate a random H, S, and L value between the specified bounds
-  const h = hL + (hU - hL) * Math.random();
+  const h = (hL + (hU - hL) * Math.random()) % 360;
   const s = sL + (sU - sL) * Math.random();
   const l = lL + (lU - lL) * Math.random();
   return new HSLColor(h % 360, s, l);
