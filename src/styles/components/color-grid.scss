@@ -3,14 +3,14 @@
   border-collapse: collapse;
   border-spacing: 0;
 
-  th[data-id='400'], td[data-id='400'] {
+  th[data-position-idx='3'], td[data-position-idx='3'] {
     background-color: $gray;
   }
 
   thead {
     height: 50px;
 
-    th[data-id='400'] {
+    th[data-position-idx='3'] {
       color: $orange;
     }
   }

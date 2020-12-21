@@ -248,10 +248,9 @@ class ColorGrid extends React.Component {
           <tr>
             <th></th>
             {new Array(GRADIENT_LEN).fill(null).map((_i, idx) => {
-              const value = (idx + 1) * 100;
               return (
-                <th key={`th-${idx}`} data-id={value}>
-                  {value}
+                <th key={`th-${idx}`} data-position-idx={idx}>
+                  {(idx + 1) * 100}
                 </th>
               );
             })}

@@ -58,14 +58,16 @@ class Row extends React.Component {
     return (
       <tr
         className='color-grid__row'
-        data-type={gradientType}
-        data-id={gradientIdx}>
+        data-gradient-type={gradientType}
+        data-gradient-idx={gradientIdx}>
         <td className='label'>{this.label()}</td>
         {gradient.map((hslColor, positionIdx) => {
           return (
             <td
               key={`gradient-${gradientType}-${gradientIdx}-${positionIdx}`}
-              data-id={(positionIdx + 1) * 100}>
+              data-gradient-type={gradientType}
+              data-gradient-idx={gradientIdx}
+              data-position-idx={positionIdx}>
               <ColorCell
                 hslColor={hslColor}
                 isSelected={selectedIdx > -1 && selectedIdx === positionIdx}
