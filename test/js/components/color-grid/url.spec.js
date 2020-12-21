@@ -248,13 +248,13 @@ describe('translating between state and url', () => {
         });
 
         it('returns null when any hex is invalid', () => {
-          mockSearchAs('?badParam=11AA11-XXXXX-11CC11-11DD11');
+          mockSearchAs('?g=11AA11-XXXXX-11CC11-11DD11');
           // eslint-disable-next-line
           expect(getStateFromUrl()).to.be.null;
         });
 
         it('returns null when gradient length is incorrect', () => {
-          mockSearchAs('?badParam=11AA11-11BB11-11CC11');
+          mockSearchAs('?g=11AA11-11BB11-11CC11');
           // eslint-disable-next-line
           expect(getStateFromUrl()).to.be.null;
         });

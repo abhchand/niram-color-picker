@@ -22,6 +22,9 @@ const deserializeGradients = (paramValue) => {
   const segments = (paramValue || '').split('-').map((s) => new HexColor(s));
 
   // If parsed values are invaid, return null
+  if (segments.length === 0) {
+    return null
+  }
   if (!segments.every((hc) => hc.isValid())) {
     return null;
   }

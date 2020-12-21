@@ -34,10 +34,10 @@ const getStateFromUrl = () => {
    * Check for and parse `g`, the gradient param, which must exist
    * in order to parse the state
    */
-  if (!params.g) {
+  const gradientState = deserializeGradients(params.g);
+  if (!gradientState) {
     return null;
   }
-  const gradientState = deserializeGradients(params.g);
 
   /*
    * Parse all other params, which are assumed to be various
