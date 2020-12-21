@@ -99,4 +99,23 @@ const getSelectedColorPosition = () => {
   };
 };
 
-export { getColorGridAsJSON, getSelectedColorPosition };
+const setSelectedColorPosition = (pos) => {
+  /*
+   * The data-*-idx values are integers, so the query selector
+   * should not have surrounding quotes.
+   *
+   * See: https://github.com/enzymejs/enzyme/blob/master/docs/api/selector.md#1-a-valid-css-selector
+   */
+  const selectedColorCell = global.wrapper
+    .find(
+      `td[data-gradient-type='${pos.gradientType}'][data-gradient-idx=${pos.gradientIdx}][data-position-idx=${pos.positionIdx}]`
+    )
+    .at(0);
+  selectedColorCell.find('div').at(0).simulate('click');
+};
+
+export {
+  getColorGridAsJSON,
+  getSelectedColorPosition,
+  setSelectedColorPosition
+};
