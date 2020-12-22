@@ -5,7 +5,7 @@ import {
 import {
   getColorGridAsJSON,
   getSelectedColorPosition
-} from 'js/support/components/color-grid/dom';
+} from 'js/support/components/color-grid/color-cells';
 import ColorGrid from 'components/color-grid';
 import { expect } from 'chai';
 import { mockEventEmit } from 'js/support/mocks/event-bus';

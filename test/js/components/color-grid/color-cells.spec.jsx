@@ -8,7 +8,7 @@ import {
   getColorGridAsJSON,
   getSelectedColorPosition,
   setSelectedColorPosition
-} from 'js/support/components/color-grid/dom';
+} from 'js/support/components/color-grid/color-cells';
 import ColorGrid from 'components/color-grid';
 import eventBus from 'components/event-bus';
 import { expect } from 'chai';
