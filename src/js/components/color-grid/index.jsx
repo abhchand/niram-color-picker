@@ -32,6 +32,8 @@ class ColorGrid extends React.Component {
     this.broadcastColorGrid = this.broadcastColorGrid.bind(this);
     this.renderRowsFor = this.renderRowsFor.bind(this);
 
+    this.eventUnsubscribes = [];
+
     // Check if URL can be parsed and loaded, if not generate a
     // new initial state from randomized colors
     const stateFromUrl = getStateFromUrl();
@@ -75,10 +77,17 @@ class ColorGrid extends React.Component {
 
     // Listen for emitted events from other components
     const { overrideSelectedColor } = this;
-    eventBus.on(OVERRIDE_SELECTED_COLOR, (color) =>
+    const unsubscribeOverride = eventBus.on(OVERRIDE_SELECTED_COLOR, (color) =>
       overrideSelectedColor(color)
     );
-    eventBus.on(RESET_SELECTED_COLOR, () => overrideSelectedColor(null));
+    const unsubscribeReset = eventBus.on(RESET_SELECTED_COLOR, () => overrideSelectedColor(null));
+
+    this.eventUnsubscribes.push(unsubscribeOverride);
+    this.eventUnsubscribes.push(unsubscribeReset);
+  }
+
+  componentWillUnmount() {
+    this.eventUnsubscribes.forEach((u) => u());
   }
 
   updateSelectedCell(gradientType, gradientIdx, positionIdx) {
