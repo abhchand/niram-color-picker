@@ -114,8 +114,26 @@ const setSelectedColorPosition = (pos) => {
   selectedColorCell.find('div').at(0).simulate('click');
 };
 
+const setOverrideColor = (color, position) => {
+  const { gradientType, gradientIdx, positionIdx } = position;
+
+  const key = `${gradientType}Overrides`;
+
+  /*
+   * Manually update the state to override the color cell
+   * at the specified position
+   */
+  const overrides = global.wrapper.state(key);
+  overrides[gradientIdx].set(positionIdx, color);
+  global.wrapper.setState({ [key]: overrides });
+
+  // Force a re-render
+  global.wrapper.setProps({});
+}
+
 export {
   getColorGridAsJSON,
   getSelectedColorPosition,
-  setSelectedColorPosition
+  setSelectedColorPosition,
+  setOverrideColor
 };

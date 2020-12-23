@@ -7,7 +7,8 @@ import {
 import {
   getColorGridAsJSON,
   getSelectedColorPosition,
-  setSelectedColorPosition
+  setSelectedColorPosition,
+  setOverrideColor
 } from 'js/support/components/color-grid/color-cells';
 import ColorGrid from 'components/color-grid';
 import eventBus from 'components/event-bus';
@@ -218,12 +219,11 @@ describe('color cells', () => {
        * selected color. The default selected color is the
        * base color (middle color) of the first row (primary gradient)
        */
-      const primaryOverrides = global.wrapper.state('primaryOverrides');
-      primaryOverrides[0].set(1, overrideColor);
-      global.wrapper.setState({ primaryOverrides: primaryOverrides });
-
-      // Force a re-render
-      global.wrapper.setProps({});
+      setOverrideColor(overrideColor, {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      });
 
       initialColorGridJSON = getColorGridAsJSON();
       mockEmit = mockEventEmit();

@@ -2,11 +2,11 @@ import {
   COLOR_GRID_UPDATED,
   UPDATE_SELECTED_COLOR
 } from 'components/event-bus/events';
+import { getColorGridAsJSON, setOverrideColor } from 'js/support/components/color-grid/color-cells';
 import { mockRandom, resetMockRandom } from 'jest-mock-random';
 import { clickGradientRefreshBtn } from 'js/support/components/color-grid/refresh';
 import ColorGrid from 'components/color-grid';
 import { expect } from 'chai';
-import { getColorGridAsJSON } from 'js/support/components/color-grid/color-cells';
 import HexColor from 'models/hex-color';
 import { mockEventEmit } from 'js/support/mocks/event-bus';
 import { mockWindowForReactComponent } from 'js/support/mocks/react/window';
@@ -143,12 +143,11 @@ describe('refreshing a gradient', () => {
        * selected color. The default selected color is the
        * base color (middle color) of the first row (primary gradient)
        */
-      const primaryOverrides = global.wrapper.state('primaryOverrides');
-      primaryOverrides[0].set(1, overrideColor);
-      global.wrapper.setState({ primaryOverrides: primaryOverrides });
-
-      // Force a re-render
-      global.wrapper.setProps({});
+      setOverrideColor(overrideColor, {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      });
     });
 
     it('resets the override', () => {
