@@ -2,7 +2,10 @@ import {
   COLOR_GRID_UPDATED,
   UPDATE_SELECTED_COLOR
 } from 'components/event-bus/events';
-import { getColorGridAsJSON, setOverrideColor } from 'js/support/components/color-grid/color-cells';
+import {
+  getColorGridAsJSON,
+  setOverrideColor
+} from 'js/support/components/color-grid/color-cells';
 import { mockRandom, resetMockRandom } from 'jest-mock-random';
 import { clickGradientRefreshBtn } from 'js/support/components/color-grid/refresh';
 import ColorGrid from 'components/color-grid';

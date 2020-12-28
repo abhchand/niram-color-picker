@@ -10,7 +10,7 @@ const toColor = (colorObj) => {
   } else {
     return new HexColor(colorObj);
   }
-}
+};
 
 /*
  * Transforms a color grid representation into
@@ -69,9 +69,7 @@ const transformColorGridtoHex = (colorGrid) => {
       const rows = json[gradientType];
 
       result[gradientType] = rows.map((row) => {
-        return row.map((color) =>
-          new toColor(color).toHex().value()
-        );
+        return row.map((color) => new toColor(color).toHex().value());
       });
     }
   }

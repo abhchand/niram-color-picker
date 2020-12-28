@@ -45,7 +45,9 @@ class ExportModal extends React.Component {
             }}
             className='color-export__scss'></div>
           <CopyToClipboard text={scss} fallbackOnPrompt={false} />
-          <button onClick={this.props.closeModal} className='button--hollow'>CLOSE</button>
+          <button onClick={this.props.closeModal} className='button--hollow'>
+            CLOSE
+          </button>
         </div>
       </div>
     );

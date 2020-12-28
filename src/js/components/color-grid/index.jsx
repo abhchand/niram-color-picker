@@ -80,7 +80,9 @@ class ColorGrid extends React.Component {
     const unsubscribeOverride = eventBus.on(OVERRIDE_SELECTED_COLOR, (color) =>
       overrideSelectedColor(color)
     );
-    const unsubscribeReset = eventBus.on(RESET_SELECTED_COLOR, () => overrideSelectedColor(null));
+    const unsubscribeReset = eventBus.on(RESET_SELECTED_COLOR, () =>
+      overrideSelectedColor(null)
+    );
 
     this.eventUnsubscribes.push(unsubscribeOverride);
     this.eventUnsubscribes.push(unsubscribeReset);

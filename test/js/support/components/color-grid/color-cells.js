@@ -129,7 +129,7 @@ const setOverrideColor = (color, position) => {
 
   // Force a re-render
   global.wrapper.setProps({});
-}
+};
 
 export {
   getColorGridAsJSON,

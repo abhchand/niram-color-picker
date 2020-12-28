@@ -4,18 +4,18 @@ import {
   generateNullGradients
 } from '../gradients';
 import {
+  GRADIENT_LEN,
   NUM_ACCENT_GRADIENTS,
   NUM_NEUTRAL_GRADIENTS,
   NUM_PRIMARY_GRADIENTS
 } from '../constants';
 import Gradient from 'models/gradient';
-import { GRADIENT_LEN } from '../constants';
 import HexColor from 'models/hex-color';
 
 const NUM_GRADIENTS =
   NUM_PRIMARY_GRADIENTS + NUM_NEUTRAL_GRADIENTS + NUM_ACCENT_GRADIENTS;
 
-const OVERRIDE_PARAM_PATTERN = /^([pna])(\d+)$/;
+const OVERRIDE_PARAM_PATTERN = /^([pna])(\d+)$/u;
 
 const deserializeGradients = (paramValue) => {
   // Parse each token separated by '-' as a hex color
@@ -23,7 +23,7 @@ const deserializeGradients = (paramValue) => {
 
   // If parsed values are invaid, return null
   if (segments.length === 0) {
-    return null
+    return null;
   }
   if (!segments.every((hc) => hc.isValid())) {
     return null;
@@ -65,7 +65,7 @@ const deserializeOverrides = (params) => {
       continue;
     }
 
-    const idx = parseInt(tokens[2]);
+    const idx = parseInt(tokens[2], 10);
     let stateKey = null;
 
     switch (tokens[1]) {
@@ -89,6 +89,8 @@ const deserializeOverrides = (params) => {
         }
         stateKey = 'accentOverrides';
         break;
+
+      default:
     }
 
     // Try to parse each token separated by '-' as a hex color

@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDom from 'react-dom';
 import ColorEditor from 'components/color-editor';
 import ColorExport from 'components/color-export';
 import ColorGrid from 'components/color-grid';
+import React from 'react';
+import ReactDom from 'react-dom';
 
 /*
  * Order matters -`<ColorGrid />` emits events to other components

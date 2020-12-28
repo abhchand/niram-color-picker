@@ -1,3 +1,4 @@
+import { generateHSLGradient, randomBoundedHSLColor } from 'helpers/hsl';
 import {
   L_GRADIENT_RANGE,
   L_LOWER,
@@ -6,7 +7,6 @@ import {
   S_LOWER,
   S_UPPER
 } from './color-constants';
-import { generateHSLGradient, randomBoundedHSLColor } from 'helpers/hsl';
 import { GRADIENT_LEN } from '../constants';
 
 /*
