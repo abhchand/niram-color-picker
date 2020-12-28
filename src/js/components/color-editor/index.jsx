@@ -85,6 +85,7 @@ class ColorEditor extends React.Component {
         <ColorModelSelector
           colorModel={colorModel}
           setColorModel={this.setColorModel}
+          namespace={'color_editor'}
         />
         <ColorValue
           color={color}

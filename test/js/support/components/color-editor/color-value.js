@@ -30,7 +30,7 @@ const setInputValue = (channel, value) => {
 
 const selectColorModel = (colorModel) => {
   const input = global.wrapper
-    .find(`input[name='color_model[name]'][value='${colorModel}']`)
+    .find(`input[name='color_editor_color_model[name]'][value='${colorModel}']`)
     .at(0);
   input.simulate('change');
 };

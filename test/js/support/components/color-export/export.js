@@ -11,7 +11,7 @@ const exportedSCSSText = () => {
 
 const selectColorModel = (colorModel) => {
   const input = global.wrapper
-    .find(`input[name='color_model[name]'][value='${colorModel}']`)
+    .find(`input[name='color_export_color_model[name]'][value='${colorModel}']`)
     .at(0);
   input.simulate('change');
 };

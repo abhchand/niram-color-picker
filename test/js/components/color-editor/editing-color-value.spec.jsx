@@ -42,15 +42,15 @@ describe('Editing Color Value', () => {
     let e;
 
     /* eslint-disable no-unused-expressions */
-    e = global.wrapper.find("#color_model_name_0[value='rgb']").at(0);
+    e = global.wrapper.find("#color_editor_color_model_name_0[value='rgb']").at(0);
     expect(e).to.not.be.null;
     expect(e).to.be.checked;
 
-    e = global.wrapper.find("#color_model_name_1[value='hex']").at(0);
+    e = global.wrapper.find("#color_editor_color_model_name_1[value='hex']").at(0);
     expect(e).to.not.be.null;
     expect(e).to.not.be.checked;
 
-    e = global.wrapper.find("#color_model_name_2[value='hsl']").at(0);
+    e = global.wrapper.find("#color_editor_color_model_name_2[value='hsl']").at(0);
     expect(e).to.not.be.null;
     expect(e).to.not.be.checked;
     /* eslint-enable no-unused-expressions */

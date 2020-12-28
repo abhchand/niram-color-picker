@@ -38,6 +38,7 @@ class ExportModal extends React.Component {
           <ColorModelSelector
             colorModel={this.state.colorModel}
             setColorModel={this.setColorModel}
+            namespace={'color_export'}
           />
           <div
             dangerouslySetInnerHTML={{
