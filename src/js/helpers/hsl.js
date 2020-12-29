@@ -3,7 +3,7 @@ import Gradient from 'models/gradient';
 import HSLColor from 'models/hsl-color';
 
 /*
- * Generate a `Gradient` based on a given `hslColor`.
+ * Generate a `Gradient` based on a given `color`.
  *
  * Generates an equal number of darker and lighter
  * shades, for a total of `gradientLen` colors.
@@ -22,7 +22,14 @@ import HSLColor from 'models/hsl-color';
  * Returns a `Gradient` object (which is a list of
  * `HSLColor` objects, from darkest to lightest)
  */
-const generateHSLGradient = (hslColor, gradientLen, sRange, lRange) => {
+const generateHSLGradient = (color, gradientLen, sRange, lRange) => {
+  /*
+   * Convert to Hex and then HSL. The intermediate Hex conversion
+   * solves any rounding issues that occur when generating gradients
+   * (via HSL) versus building gradients from the URL (Hex).
+   */
+  const hslColor = color.toHex().toHSL();
+
   if (gradientLen % 2 === 0) {
     throw 'Gradient length must be odd!';
   }

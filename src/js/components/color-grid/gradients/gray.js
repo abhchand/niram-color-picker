@@ -51,7 +51,7 @@ const generateGrayGradients = (count) => {
      * Generate the base color, specifying the H, S, and L
      * bounds.
      */
-    const baseColor = new RGBColor(rgb[0], rgb[1], rgb[2]).toHSL();
+    const baseColor = new RGBColor(rgb[0], rgb[1], rgb[2]);
 
     // Generate the gradient around the base color
     gradients.push(
@@ -74,7 +74,7 @@ const generateGrayGradients = (count) => {
 const generateGrayGradientsFromBaseColors = (baseColors) => {
   return baseColors.map((baseColor) => {
     return generateHSLGradient(
-      baseColor.toHSL(),
+      baseColor,
       GRADIENT_LEN,
       S_GRADIENT_RANGE,
       L_GRADIENT_RANGE

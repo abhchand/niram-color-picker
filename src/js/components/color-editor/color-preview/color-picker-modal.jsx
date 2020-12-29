@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
-import HSLColor from 'models/hsl-color';
+import RGBColor from 'models/rgb-color';
 import PropTypes from 'prop-types';
 
 function ColorPickerModal(props) {
-  const [hsl, setHsl] = useState(props.hslColor.value());
+  const [rgb, setRgb] = useState(props.hslColor.toRGB().value());
 
   const handleChangeComplete = (color) => {
-    setHsl(color.hsl);
+    setRgb(color.rgb);
   };
 
   const submitModal = () => {
-    props.setColor(new HSLColor(hsl.h, hsl.s, hsl.l));
+    props.setColor(new RGBColor(rgb.r, rgb.g, rgb.b));
     props.closeModal();
   };
 
@@ -19,7 +19,7 @@ function ColorPickerModal(props) {
     <div className='color-editor__color-picker-modal modal'>
       <div className='modal-content'>
         <ChromePicker
-          color={hsl}
+          color={rgb}
           onChangeComplete={handleChangeComplete}
           disableAlpha
         />

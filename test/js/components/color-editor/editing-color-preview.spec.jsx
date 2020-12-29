@@ -222,7 +222,7 @@ describe('Editing Color Preview', () => {
       expect(calls.length).to.equal(1);
       expect(calls[0][0]).to.equal(OVERRIDE_SELECTED_COLOR);
       expect(calls[0][1].value()).to.eql(
-        new HexColor('AA12FC').toHSL().value()
+        new HexColor('AA12FC').toRGB().value()
       );
     });
 

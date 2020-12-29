@@ -12,11 +12,11 @@ import HexColor from 'models/hex-color';
  * Returns the form:
  *
  * {
- *   primary: [ [ '203723', '40B052', '9DECAA' ] ],
- *   neutral: [ [ '494949', '7E7A7E', 'B5AAB5' ] ],
+ *   primary: [ [ '203724', '40B052', '9EECAA' ] ],
+ *   neutral: [ [ '494949', '7E7A7E', 'B4AAB4' ] ],
  *   accent: [
- *     [ '372030', 'B04091', 'EC9DD6' ],
- *     [ '203726', '40B05F', '9DECB3' ]
+ *     [ '372031', 'B04091', 'EC9ED6' ],
+ *     [ '203726', '40B05F', '9EECB3' ]
  *   ]
  * }
  */

@@ -86,11 +86,11 @@ describe('Color Picker', () => {
 
     // It has the correct color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -126,11 +126,11 @@ describe('Color Picker', () => {
 
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', 'C9C9C9', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', 'C9C9C9', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -159,19 +159,19 @@ describe('Color Picker', () => {
     clickBrightenBtn();
 
     // It updates the preview
-    assertPreviewColor(new HexColor('5EC56E'));
+    assertPreviewColor(new HexColor('5FC56F'));
 
     // It updates the color input value
     selectColorModel('hex');
-    expect(getHexInputValues()).to.eql('5EC56E');
+    expect(getHexInputValues()).to.eql('5FC56F');
 
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '5EC56E', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '5FC56F', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -185,14 +185,14 @@ describe('Color Picker', () => {
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
-      '/?g=40B052-7E7A7E-B04091-40B05F&p0=,5EC56E,'
+      '/?g=40B052-7E7A7E-B04091-40B05F&p0=,5FC56F,'
     );
 
     // It updates the exported SCSS
     openExportModal();
     selectColorModel('rgb');
     expect(exportedSCSSText()).to.match(
-      /\$primary_0_200: rgb\(94, 197, 110\)/u
+      /\$primary_0_200: rgb\(95, 197, 111\)/u
     );
   });
 
@@ -200,19 +200,19 @@ describe('Color Picker', () => {
     clickDarkenBtn();
 
     // It updates the preview
-    assertPreviewColor(new HexColor('328B40'));
+    assertPreviewColor(new HexColor('328B41'));
 
     // It updates the color input value
     selectColorModel('hex');
-    expect(getHexInputValues()).to.eql('328B40');
+    expect(getHexInputValues()).to.eql('328B41');
 
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '328B40', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '328B41', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -226,13 +226,13 @@ describe('Color Picker', () => {
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
-      '/?g=40B052-7E7A7E-B04091-40B05F&p0=,328B40,'
+      '/?g=40B052-7E7A7E-B04091-40B05F&p0=,328B41,'
     );
 
     // It updates the exported SCSS
     openExportModal();
     selectColorModel('rgb');
-    expect(exportedSCSSText()).to.match(/\$primary_0_200: rgb\(50, 139, 64\)/u);
+    expect(exportedSCSSText()).to.match(/\$primary_0_200: rgb\(50, 139, 65\)/u);
   });
 
   it('user can select a color from the color picker', async () => {
@@ -259,11 +259,11 @@ describe('Color Picker', () => {
 
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', 'C9C9C9', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', 'C9C9C9', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -302,11 +302,11 @@ describe('Color Picker', () => {
 
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -337,19 +337,19 @@ describe('Color Picker', () => {
     });
 
     // It updates the preview
-    assertPreviewColor(new HexColor('9DECB3'));
+    assertPreviewColor(new HexColor('9EECB3'));
 
     // It updates the color input value
     selectColorModel('hex');
-    expect(getHexInputValues()).to.eql('9DECB3');
+    expect(getHexInputValues()).to.eql('9EECB3');
 
     // It does not update the color grid
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -391,10 +391,10 @@ describe('Color Picker', () => {
     // It updates color grid
     expect(getColorGridAsJSON()).to.eql({
       primary: [['74482F', 'DA8D62', 'FBE6DA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 

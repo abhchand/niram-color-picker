@@ -40,11 +40,11 @@ describe('Initializing <ColorGrid />', () => {
     renderComponent();
 
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
   });
@@ -106,11 +106,11 @@ describe('Initializing <ColorGrid />', () => {
     expect(calls.length).to.equal(2);
     expect(calls[1][0]).to.equal(COLOR_GRID_UPDATED);
     expect(transformColorGridtoHex(calls[1][1])).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
   });
@@ -126,11 +126,11 @@ describe('Initializing <ColorGrid />', () => {
       renderComponent();
 
       expect(getColorGridAsJSON()).to.eql({
-        primary: [['203723', '40B052', '9DECAA']],
-        neutral: [['494949', '7E7A7E', 'B5AAB5']],
+        primary: [['203724', '40B052', '9EECAA']],
+        neutral: [['494949', '7E7A7E', 'B4AAB4']],
         accent: [
-          ['372030', 'B04091', 'EC9DD6'],
-          ['203726', '40B05F', '9DECB3']
+          ['372031', 'B04091', 'EC9ED6'],
+          ['203726', '40B05F', '9EECB3']
         ]
       });
     });
@@ -187,11 +187,11 @@ describe('Initializing <ColorGrid />', () => {
         renderComponent();
 
         expect(getColorGridAsJSON()).to.eql({
-          primary: [['203723', '40B052', '9DECAA']],
-          neutral: [['494949', '7E7A7E', 'B5AAB5']],
+          primary: [['74482F', 'DA8D62', 'FBE6DA']],
+          neutral: [['656565', '949D9D', 'C7D0D0']],
           accent: [
-            ['372030', 'B04091', 'EC9DD6'],
-            ['203726', '40B05F', '9DECB3']
+            ['2F746C', '62DACC', 'DAFBF7'],
+            ['742F37', 'DA6270', 'FBDADE']
           ]
         });
       });

@@ -57,11 +57,11 @@ describe('refreshing a gradient', () => {
     renderComponent();
 
     expect(getColorGridAsJSON()).to.eql({
-      primary: [['203723', '40B052', '9DECAA']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      primary: [['203724', '40B052', '9EECAA']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
 
@@ -76,10 +76,10 @@ describe('refreshing a gradient', () => {
 
     expect(getColorGridAsJSON()).to.eql({
       primary: [['602C5B', 'D154C4', 'F8C6F3']],
-      neutral: [['494949', '7E7A7E', 'B5AAB5']],
+      neutral: [['494949', '7E7A7E', 'B4AAB4']],
       accent: [
-        ['372030', 'B04091', 'EC9DD6'],
-        ['203726', '40B05F', '9DECB3']
+        ['372031', 'B04091', 'EC9ED6'],
+        ['203726', '40B05F', '9EECB3']
       ]
     });
   });
@@ -155,11 +155,11 @@ describe('refreshing a gradient', () => {
 
     it('resets the override', () => {
       expect(getColorGridAsJSON()).to.eql({
-        primary: [['203723', overrideColor.value(), '9DECAA']],
-        neutral: [['494949', '7E7A7E', 'B5AAB5']],
+        primary: [['203724', overrideColor.value(), '9EECAA']],
+        neutral: [['494949', '7E7A7E', 'B4AAB4']],
         accent: [
-          ['372030', 'B04091', 'EC9DD6'],
-          ['203726', '40B05F', '9DECB3']
+          ['372031', 'B04091', 'EC9ED6'],
+          ['203726', '40B05F', '9EECB3']
         ]
       });
 
@@ -174,10 +174,10 @@ describe('refreshing a gradient', () => {
 
       expect(getColorGridAsJSON()).to.eql({
         primary: [['602C5B', 'D154C4', 'F8C6F3']],
-        neutral: [['494949', '7E7A7E', 'B5AAB5']],
+        neutral: [['494949', '7E7A7E', 'B4AAB4']],
         accent: [
-          ['372030', 'B04091', 'EC9DD6'],
-          ['203726', '40B05F', '9DECB3']
+          ['372031', 'B04091', 'EC9ED6'],
+          ['203726', '40B05F', '9EECB3']
         ]
       });
     });
@@ -200,10 +200,10 @@ describe('refreshing a gradient', () => {
       clickGradientRefreshBtn('accent', 1);
 
       expect(getColorGridAsJSON()).to.eql({
-        primary: [['203723', '40B052', '9DECAA']],
-        neutral: [['494949', '7E7A7E', 'B5AAB5']],
+        primary: [['203724', '40B052', '9EECAA']],
+        neutral: [['494949', '7E7A7E', 'B4AAB4']],
         accent: [
-          ['372030', 'B04091', 'EC9DD6'],
+          ['372031', 'B04091', 'EC9ED6'],
           ['602C5B', 'D154C4', 'F8C6F3']
         ]
       });

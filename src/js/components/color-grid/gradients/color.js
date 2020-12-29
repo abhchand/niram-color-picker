@@ -74,7 +74,7 @@ const generateColorGradients = (count) => {
 const generateColorGradientsFromBaseColors = (baseColors) => {
   return baseColors.map((baseColor) => {
     return generateHSLGradient(
-      baseColor.toHSL(),
+      baseColor,
       GRADIENT_LEN,
       S_GRADIENT_RANGE,
       L_GRADIENT_RANGE
