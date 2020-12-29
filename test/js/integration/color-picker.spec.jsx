@@ -69,7 +69,7 @@ beforeEach(() => {
   renderApplication();
 });
 
-describe('Editing Color', () => {
+describe('Color Picker', () => {
   it('sets up the corect state for other integration tests', () => {
     /*
      * This test exists purely to verify the current state of the
