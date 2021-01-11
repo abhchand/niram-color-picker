@@ -21,7 +21,7 @@ jest.mock('components/color-grid/constants', () => ({
 
 describe('translating between state and url', () => {
   describe('setUrlFromState()', () => {
-    let mockReplaceState, state;
+    let mockReplaceState, mockWindow, state;
 
     beforeEach(() => {
       state = {
@@ -57,7 +57,10 @@ describe('translating between state and url', () => {
       };
 
       mockReplaceState = jest.fn();
-      const mockWindow = { history: { replaceState: mockReplaceState } };
+      mockWindow = {
+        location: { pathname: '/' },
+        history: { replaceState: mockReplaceState }
+      };
       jest.spyOn(window, 'window', 'get').mockImplementation(() => mockWindow);
     });
 
@@ -68,6 +71,16 @@ describe('translating between state and url', () => {
         const calls = mockReplaceState.mock.calls;
         expect(calls.length).to.equal(1);
         expect(calls[0][2]).to.eql('/?g=11AA11-11BB11-11CC11-11DD11');
+      });
+
+      it('preserves any existing path, modifying only the state (params)', () => {
+        mockWindow.location.pathname = '/foo';
+
+        setUrlFromState(state);
+
+        const calls = mockReplaceState.mock.calls;
+        expect(calls.length).to.equal(1);
+        expect(calls[0][2]).to.eql('/foo?g=11AA11-11BB11-11CC11-11DD11');
       });
 
       it('handles non-Hex colors', () => {

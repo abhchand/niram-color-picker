@@ -13,7 +13,7 @@ const setUrlFromState = (state) => {
     }
   }
 
-  const urlSegments = ['/', '?', params.join('&')];
+  const urlSegments = [window.location.pathname, '?', params.join('&')];
   window.history.replaceState({}, document.title, urlSegments.join(''));
 };
 
