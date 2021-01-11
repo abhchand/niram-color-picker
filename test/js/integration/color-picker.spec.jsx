@@ -329,7 +329,8 @@ describe('Color Picker', () => {
     expect(exportedSCSSText()).to.match(/\$primary_0_200: rgb\(64, 176, 82\)/u);
   });
 
-  it('user can select a new color cell', () => {
+  it.only('user can select a new color cell', () => {
+    console.log(global.wrapper.debug());
     setSelectedColorPosition({
       gradientType: 'accent',
       gradientIdx: 1,
@@ -373,6 +374,7 @@ describe('Color Picker', () => {
   });
 
   it('user can refresh a gradient', () => {
+    console.log(global.wrapper.find('.color-export__export').debug());
     /*
      * Change the randomized seed and refresh the currently
      * selected row
@@ -412,6 +414,7 @@ describe('Color Picker', () => {
     );
 
     // It updates the exported SCSS
+    console.log(global.wrapper.find('.color-export__export').debug());
     openExportModal();
     selectColorModel('rgb');
     expect(exportedSCSSText()).to.match(
