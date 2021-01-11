@@ -23,6 +23,10 @@ blockquote {
   border-left: 4px $gray solid;
 }
 
+details {
+  cursor: pointer;
+}
+
 textarea, input, button, select {
    font-size: inherit;
    font-family: inherit;
@@ -123,7 +127,7 @@ ul, li, ol {
 
 #color-component {
   width: 100%;
-  margin: 150px auto;
+  margin: 100px auto 150px 0;
 }
 
 #color-grid-component {
@@ -152,9 +156,9 @@ ul, li, ol {
   }
 
   #content {
+    box-sizing: border-box;
     width: 100%;
     padding: 0 20px;
-    box-sizing: border-box;
   }
 }
 
