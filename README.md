@@ -2,6 +2,8 @@
 
 A tool to generate a full palette of colors for your next project.
 
+https://niramcolor.xyz/
+
 # Setup
 
 ```
