@@ -79,16 +79,22 @@ describe('generating gradients', () => {
        *  - H: 0.4 distance of [144 + 120 - 24, 144 + 120 + 24]  = 259.2
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
+       *  - The color is then "rounded" by converting to Hex and then back to HSL
+       *  => { h: 258.974, s: 0.478, l: 0.48 }
        *
        * Base Color of 2nd Gradient:
        *  - H: 0.4 distance of [144 + 240 - 24, 144 + 240 + 24]  = 379.2 % 360 = 19.2
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
+       *  - The color is then "rounded" by converting to Hex and then back to HSL
+       *  => { h: 18.974, s: 0.478, l: 0.48 }
        *
        * Base Color of 3rd Gradient:
        *  - H: 0.4 distance of [144 + 360 - 24, 144 + 360 + 24]  = 379.2 % 360 = 139.2
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
        *  - S: 0.4 distance of [0.4, 0.6] = 0.48
+       *  - The color is then "rounded" by converting to Hex and then back to HSL
+       *  => { h: 138.974, s: 0.478, l: 0.48 }
        *
        * # GENERATING GRADIENTS
        *
@@ -102,32 +108,32 @@ describe('generating gradients', () => {
 
       expect(JSON.parse(JSON.stringify(gradients))).to.eql([
         [
-          { h: 259.2, l: 0.18, s: 0.18 },
-          { h: 259.2, l: 0.33, s: 0.33 },
-          { h: 259.2, l: 0.48, s: 0.48 },
-          { h: 259.2, l: 0.63, s: 0.63 },
-          { h: 259.2, l: 0.78, s: 0.78 }
+          { h: 258.974, l: 0.18, s: 0.178 },
+          { h: 258.974, l: 0.33, s: 0.328 },
+          { h: 258.974, l: 0.48, s: 0.478 },
+          { h: 258.974, l: 0.63, s: 0.628 },
+          { h: 258.974, l: 0.78, s: 0.778 }
         ],
         [
-          { h: 19.2, l: 0.18, s: 0.18 },
-          { h: 19.2, l: 0.33, s: 0.33 },
-          { h: 19.2, l: 0.48, s: 0.48 },
-          { h: 19.2, l: 0.63, s: 0.63 },
-          { h: 19.2, l: 0.78, s: 0.78 }
+          { h: 18.974, l: 0.18, s: 0.178 },
+          { h: 18.974, l: 0.33, s: 0.328 },
+          { h: 18.974, l: 0.48, s: 0.478 },
+          { h: 18.974, l: 0.63, s: 0.628 },
+          { h: 18.974, l: 0.78, s: 0.778 }
         ],
         [
-          { h: 139.2, l: 0.18, s: 0.18 },
-          { h: 139.2, l: 0.33, s: 0.33 },
-          { h: 139.2, l: 0.48, s: 0.48 },
-          { h: 139.2, l: 0.63, s: 0.63 },
-          { h: 139.2, l: 0.78, s: 0.78 }
+          { h: 138.974, l: 0.18, s: 0.178 },
+          { h: 138.974, l: 0.33, s: 0.328 },
+          { h: 138.974, l: 0.48, s: 0.478 },
+          { h: 138.974, l: 0.63, s: 0.628 },
+          { h: 138.974, l: 0.78, s: 0.778 }
         ]
       ]);
     });
   });
 
   describe('generateColorGradientsFromBaseColors', () => {
-    it('generates color gradients from an array of base colors', () => {
+    it.only('generates color gradients from an array of base colors', () => {
       // See above explanation of how these gradients are derived
 
       const gradients = generateColorGradientsFromBaseColors([
@@ -138,25 +144,25 @@ describe('generating gradients', () => {
 
       expect(JSON.parse(JSON.stringify(gradients))).to.eql([
         [
-          { h: 259.2, l: 0.18, s: 0.18 },
-          { h: 259.2, l: 0.33, s: 0.33 },
-          { h: 259.2, l: 0.48, s: 0.48 },
-          { h: 259.2, l: 0.63, s: 0.63 },
-          { h: 259.2, l: 0.78, s: 0.78 }
+          { h: 258.974, l: 0.18, s: 0.178 },
+          { h: 258.974, l: 0.33, s: 0.328 },
+          { h: 258.974, l: 0.48, s: 0.478 },
+          { h: 258.974, l: 0.63, s: 0.628 },
+          { h: 258.974, l: 0.78, s: 0.778 }
         ],
         [
-          { h: 19.2, l: 0.18, s: 0.18 },
-          { h: 19.2, l: 0.33, s: 0.33 },
-          { h: 19.2, l: 0.48, s: 0.48 },
-          { h: 19.2, l: 0.63, s: 0.63 },
-          { h: 19.2, l: 0.78, s: 0.78 }
+          { h: 18.974, l: 0.18, s: 0.178 },
+          { h: 18.974, l: 0.33, s: 0.328 },
+          { h: 18.974, l: 0.48, s: 0.478 },
+          { h: 18.974, l: 0.63, s: 0.628 },
+          { h: 18.974, l: 0.78, s: 0.778 }
         ],
         [
-          { h: 139.2, l: 0.18, s: 0.18 },
-          { h: 139.2, l: 0.33, s: 0.33 },
-          { h: 139.2, l: 0.48, s: 0.48 },
-          { h: 139.2, l: 0.63, s: 0.63 },
-          { h: 139.2, l: 0.78, s: 0.78 }
+          { h: 138.974, l: 0.18, s: 0.178 },
+          { h: 138.974, l: 0.33, s: 0.328 },
+          { h: 138.974, l: 0.48, s: 0.478 },
+          { h: 138.974, l: 0.63, s: 0.628 },
+          { h: 138.974, l: 0.78, s: 0.778 }
         ]
       ]);
     });

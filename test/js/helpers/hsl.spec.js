@@ -8,12 +8,21 @@ describe('generateHSLGradient()', () => {
 
     const gradient = generateHSLGradient(hslColor, 5, 0.3, 0.4);
 
+    /*
+     * The HSL color is "rounded" by converting to Hex and then back to HSL
+     * inside the `generateHSLGradient()` function.
+     *
+     *  - The `H` value of 130 rounds to 129.921
+     *  - The `S` value of 0.5 rounds to 0.498, and other S values are offset
+     *    accordingly
+     */
+
     expect(gradient._gradient.length).to.eql(5);
-    expect(gradient.valueAt(0).value()).to.eql({ h: 130, s: 0.2, l: 0.1 });
-    expect(gradient.valueAt(1).value()).to.eql({ h: 130, s: 0.35, l: 0.3 });
-    expect(gradient.valueAt(2).value()).to.eql({ h: 130, s: 0.5, l: 0.5 });
-    expect(gradient.valueAt(3).value()).to.eql({ h: 130, s: 0.65, l: 0.7 });
-    expect(gradient.valueAt(4).value()).to.eql({ h: 130, s: 0.8, l: 0.9 });
+    expect(gradient.valueAt(0).value()).to.eql({ h: 129.921, s: 0.198, l: 0.1 });
+    expect(gradient.valueAt(1).value()).to.eql({ h: 129.921, s: 0.348, l: 0.3 });
+    expect(gradient.valueAt(2).value()).to.eql({ h: 129.921, s: 0.498, l: 0.5 });
+    expect(gradient.valueAt(3).value()).to.eql({ h: 129.921, s: 0.648, l: 0.7 });
+    expect(gradient.valueAt(4).value()).to.eql({ h: 129.921, s: 0.798, l: 0.9 });
   });
 
   it('enforces lower and upper bounds on both saturation and luminance', () => {
@@ -21,12 +30,21 @@ describe('generateHSLGradient()', () => {
 
     const gradient = generateHSLGradient(hslColor, 5, 0.6, 0.6);
 
+    /*
+     * The HSL color is "rounded" by converting to Hex and then back to HSL
+     * inside the `generateHSLGradient()` function.
+     *
+     *  - The `H` value of 130 rounds to 129.921
+     *  - The `S` value of 0.5 rounds to 0.498, and other S values are offset
+     *    accordingly
+     */
+
     expect(gradient._gradient.length).to.eql(5);
-    expect(gradient.valueAt(0).value()).to.eql({ h: 130, s: 0, l: 0 });
-    expect(gradient.valueAt(1).value()).to.eql({ h: 130, s: 0.2, l: 0.2 });
-    expect(gradient.valueAt(2).value()).to.eql({ h: 130, s: 0.5, l: 0.5 });
-    expect(gradient.valueAt(3).value()).to.eql({ h: 130, s: 0.8, l: 0.8 });
-    expect(gradient.valueAt(4).value()).to.eql({ h: 130, s: 1, l: 1 });
+    expect(gradient.valueAt(0).value()).to.eql({ h: 129.921, s: 0, l: 0 });
+    expect(gradient.valueAt(1).value()).to.eql({ h: 129.921, s: 0.198, l: 0.2 });
+    expect(gradient.valueAt(2).value()).to.eql({ h: 129.921, s: 0.498, l: 0.5 });
+    expect(gradient.valueAt(3).value()).to.eql({ h: 129.921, s: 0.798, l: 0.8 });
+    expect(gradient.valueAt(4).value()).to.eql({ h: 129.921, s: 1, l: 1 });
   });
 
   describe('gradient length is even', () => {
