@@ -140,7 +140,8 @@ describe('Initializing <ColorGrid />', () => {
 
       mockWindowForReactComponent({
         location: {
-          search: '?g=40B052-7E7A7E-B04091-40B05F'
+          pathname: '/',
+          search: '?g=40B052-7E7A7E-B04091-40B05F',
         },
         history: {
           replaceState: mockReplaceState

@@ -44,6 +44,7 @@ beforeEach(() => {
 
   mockWindowForReactComponent({
     location: {
+      pathname: '/',
       search: ''
     },
     history: {

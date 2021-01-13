@@ -55,6 +55,7 @@ beforeEach(() => {
 
   windowSpy = mockWindowForReactComponent({
     location: {
+      pathname: '/',
       search: ''
     },
     history: {
