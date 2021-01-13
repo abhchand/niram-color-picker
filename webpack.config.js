@@ -54,12 +54,14 @@ var config = {
     new HtmlWebpackPlugin({
       hash: true,
       filename: 'index.html',
-      template: './src/html/index.html'
+      template: './src/html/index.html',
+      chunks: ['common', 'index']
     }),
     new HtmlWebpackPlugin({
       hash: true,
       filename: 'picker/index.html',
-      template: './src/html/picker.html'
+      template: './src/html/picker.html',
+      chunks: ['common', 'picker']
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
