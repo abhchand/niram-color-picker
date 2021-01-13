@@ -11,14 +11,21 @@ var BUILD_DIR = path.resolve(__dirname, 'docs');
 
 var config = {
   entry: {
-    index: [
-      SRC_DIR + '/styles/index.scss',
-      SRC_DIR + '/js/index.jsx'
-    ],
-    picker: [
-      SRC_DIR + '/styles/picker/index.scss',
-      SRC_DIR + '/js/picker/index.jsx'
-    ]
+    common: SRC_DIR + '/styles/common.scss',
+    index: {
+      import: [
+        SRC_DIR + '/styles/index.scss',
+        SRC_DIR + '/js/index.jsx'
+      ],
+      dependOn: 'common'
+    },
+    picker: {
+      import: [
+        SRC_DIR + '/styles/picker/index.scss',
+        SRC_DIR + '/js/picker/index.jsx'
+      ],
+      dependOn: 'common'
+    }
   },
   mode: process.env.NODE_ENV,
   output: {

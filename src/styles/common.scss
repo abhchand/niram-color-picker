@@ -1,0 +1,146 @@
+$green: #509E2F;
+$orange: #FF8F1c;
+$blue: #250E62;
+$gray: #EEEEEE;
+$darkgray: #888888;
+$off-white: rgba(247,249,250,.8);
+
+body {
+  font-size: 20px;
+  font-family: monospace, serif;
+  line-height: 1.5em;
+}
+
+a, a:visited {
+  color: $blue;
+}
+
+blockquote {
+  margin: 30px 0;
+  padding: 5px 0 5px 15px;
+  color: $darkgray;
+  font-style: italic;
+  border-left: 4px $gray solid;
+}
+
+details {
+  cursor: pointer;
+}
+
+textarea, input, button, select {
+   font-size: inherit;
+   font-family: inherit;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  color: $blue;
+
+  font-weight: 600;
+
+  // CSS magic: 1px keeps the text vertically aligned in the button
+  line-height: 1px;
+  background-color: $orange;
+  border: none;
+
+  cursor: pointer;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+
+  &.button--icon {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+  }
+
+  &.button--hollow {
+    background-color: transparent;
+    border: 1px $orange solid;
+  }
+}
+
+input {
+  box-sizing: border-box;
+  width: 100px;
+  height: 32px;
+  margin: 10px 0;
+  padding: 10px 15px;
+  line-height: 32px;
+  border: 1px solid $gray;
+}
+
+input[type='radio'] {
+  width: 24px;
+  margin: -1px 10px 0 0;
+  vertical-align: middle;
+}
+
+p {
+  margin: 30px 0;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+.hard-shadow {
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background: $off-white;
+}
+
+.modal-content {
+  @extend .hard-shadow;
+
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  margin: 60px auto 0;
+  padding: 20px 16px 20px;
+  background: white;
+  border-radius: 4px;
+}
+
+#content {
+  width: 800px;
+  margin: 75px auto;
+}
+
+.title {
+  margin-bottom: 100px;
+}
+
+.copy-to-clipboard {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .modal-content {
+    width: 300px;
+  }
+
+  #content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20px;
+  }
+}
