@@ -10,17 +10,31 @@ var SRC_DIR = path.resolve(__dirname, 'src');
 var BUILD_DIR = path.resolve(__dirname, 'docs');
 
 var config = {
-  entry: [
-    SRC_DIR + '/styles/index.scss',
-    SRC_DIR + '/js/index.jsx'
-  ],
+  entry: {
+    index: [
+      SRC_DIR + '/styles/index.scss',
+      SRC_DIR + '/js/index.jsx'
+    ],
+    picker: [
+      SRC_DIR + '/styles/picker/index.scss',
+      SRC_DIR + '/js/picker/index.jsx'
+    ]
+  },
   mode: process.env.NODE_ENV,
   output: {
     path: BUILD_DIR,
-    filename: 'index.js'
+    filename: (pathData, assetInfo) => {
+      const name = pathData.chunk.name;
+      return name === 'index' ? '[name].js' : '[name]/index.js';
+    }
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: (pathData, assetInfo) => {
+        const name = pathData.chunk.name;
+        return name === 'index' ? '[name].css' : '[name]/index.css';
+      }
+    }),
     new CopyPlugin({
       patterns: [
         {
@@ -33,7 +47,12 @@ var config = {
     new HtmlWebpackPlugin({
       hash: true,
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/html/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: 'picker/index.html',
+      template: './src/html/picker.html'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

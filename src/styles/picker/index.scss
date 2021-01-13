@@ -161,3 +161,7 @@ ul, li, ol {
     padding: 0 20px;
   }
 }
+
+@import 'components/color-grid';
+@import 'components/color-editor';
+@import 'components/color-export';
