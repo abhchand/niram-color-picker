@@ -58,7 +58,7 @@ class ColorExport extends React.Component {
     return (
       <div className='color-export'>
         <button className='color-export__export' onClick={this.openModal}>
-          EXPORT CSS →
+          EXPORT SCSS →
         </button>
         {this.renderModal()}
       </div>
