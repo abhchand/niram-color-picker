@@ -96,6 +96,8 @@ const deserializeOverrides = (params) => {
     // Try to parse each token separated by '-' as a hex color
     let segments = params[key].split(',').map((s) => {
       const c = new HexColor(s);
+      c.markAsOverride();
+
       return c === null || !c.isValid() ? null : c;
     });
 

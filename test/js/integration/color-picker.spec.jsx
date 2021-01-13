@@ -5,6 +5,7 @@ import {
 } from 'js/support/components/color-editor/color-preview';
 import {
   getColorGridAsJSON,
+  getOverridentColorPositions,
   getSelectedColorPosition,
   setSelectedColorPosition
 } from 'js/support/components/color-grid/color-cells';
@@ -101,6 +102,9 @@ describe('Color Picker', () => {
       positionIdx: 1
     });
 
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([]);
+
     // It has the correct URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
@@ -140,6 +144,15 @@ describe('Color Picker', () => {
       gradientIdx: 0,
       positionIdx: 1
     });
+
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([
+      {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      }
+    ]);
 
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
@@ -182,6 +195,15 @@ describe('Color Picker', () => {
       positionIdx: 1
     });
 
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([
+      {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      }
+    ]);
+
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
@@ -222,6 +244,15 @@ describe('Color Picker', () => {
       gradientIdx: 0,
       positionIdx: 1
     });
+
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([
+      {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      }
+    ]);
 
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
@@ -274,6 +305,15 @@ describe('Color Picker', () => {
       positionIdx: 1
     });
 
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([
+      {
+        gradientType: 'primary',
+        gradientIdx: 0,
+        positionIdx: 1
+      }
+    ]);
+
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
@@ -317,6 +357,9 @@ describe('Color Picker', () => {
       positionIdx: 1
     });
 
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([]);
+
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;
     expect(calls[calls.length - 1][2]).to.eql(
@@ -359,6 +402,9 @@ describe('Color Picker', () => {
       gradientIdx: 1,
       positionIdx: 2
     });
+
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([]);
 
     // It does not update the URL state
     const calls = mockReplaceState.mock.calls;
@@ -404,6 +450,9 @@ describe('Color Picker', () => {
       gradientIdx: 0,
       positionIdx: 1
     });
+
+    // It has the correct color cells marked as overriden
+    expect(getOverridentColorPositions()).to.eql([]);
 
     // It updates the URL state
     const calls = mockReplaceState.mock.calls;

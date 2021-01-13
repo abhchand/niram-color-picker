@@ -6,9 +6,10 @@ import {
 } from 'components/event-bus/events';
 import {
   getColorGridAsJSON,
+  getOverridentColorPositions,
   getSelectedColorPosition,
-  setSelectedColorPosition,
-  setOverrideColor
+  setOverrideColor,
+  setSelectedColorPosition
 } from 'js/support/components/color-grid/color-cells';
 import ColorGrid from 'components/color-grid';
 import eventBus from 'components/event-bus';
@@ -144,6 +145,26 @@ describe('color cells', () => {
 
       newColorGridJSON.primary[0][1] = beforeValue;
       expect(newColorGridJSON).to.eql(initialColorGridJSON);
+    });
+
+    it('adds the selector class for the overriden color', () => {
+      /*
+       * The default selected color is the base color (middle color)
+       * of the first row (primary gradient). Ensure it changes
+       * before and after the event is emitted
+       */
+
+      expect(getOverridentColorPositions()).to.eql([]);
+
+      triggerEmit();
+
+      expect(getOverridentColorPositions()).to.eql([
+        {
+          gradientType: 'primary',
+          gradientIdx: 0,
+          positionIdx: 1
+        }
+      ]);
     });
 
     it('updates the url with the new color grid state', () => {

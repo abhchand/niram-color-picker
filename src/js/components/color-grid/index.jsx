@@ -34,12 +34,14 @@ class ColorGrid extends React.Component {
 
     this.eventUnsubscribes = [];
 
-    // Check if URL can be parsed and loaded, if not generate a
-    // new initial state from randomized colors
+    /*
+     * Check if URL can be parsed and loaded, if not generate a
+     * new initial state from randomized colors
+     */
     const stateFromUrl = getStateFromUrl();
 
     if (stateFromUrl) {
-      this.state = Object.assign({}, this.state, stateFromUrl);
+      this.state = { ...this.state, ...stateFromUrl };
     } else {
       this.state = {
         primaryGradients: generateColorGradients(NUM_PRIMARY_GRADIENTS),
@@ -117,9 +119,16 @@ class ColorGrid extends React.Component {
 
     let updatedValue = overrideColor;
 
-    // If the override is the same value as the original
-    // color it's overriding, it's not really an override.
-    // In this case set the override to `null`.
+    // Indicate that this is an override color
+    if (updatedValue !== null) {
+      updatedValue.markAsOverride();
+    }
+
+    /*
+     * If the override is the same value as the original
+     * color it's overriding, it's not really an override.
+     * In this case set the override to `null`.
+     */
     const originalColor = this.state[gradientKey][gradientIdx].valueAt(
       positionIdx
     );
@@ -143,7 +152,7 @@ class ColorGrid extends React.Component {
   }
 
   refreshGradient(type, index) {
-    let newState = {};
+    const newState = {};
 
     /*
      * Since `primary` and `neutral` colors will only have 1
@@ -257,7 +266,7 @@ class ColorGrid extends React.Component {
       <table className='color-grid'>
         <thead>
           <tr>
-            <th></th>
+            <th />
             {new Array(GRADIENT_LEN).fill(null).map((_i, idx) => {
               return (
                 <th key={`th-${idx}`} data-position-idx={idx}>
@@ -265,7 +274,7 @@ class ColorGrid extends React.Component {
                 </th>
               );
             })}
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>

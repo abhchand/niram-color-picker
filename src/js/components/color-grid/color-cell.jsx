@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ColorCell = (props) => {
+function ColorCell(props) {
   const { hslColor, onClick } = props;
 
   if (hslColor === null) {
@@ -9,19 +9,26 @@ const ColorCell = (props) => {
   }
 
   const hexColor = `#${hslColor.toHex().value()}`;
-  const selectedCss = props.isSelected
-    ? 'color-grid__color-cell--selected'
-    : '';
+
+  const cssClasses = [];
+
+  if (props.isSelected) {
+    cssClasses.push('color-grid__color-cell--selected');
+  }
+
+  if (hslColor.isOverride()) {
+    cssClasses.push('color-grid__color-cell--override');
+  }
 
   return (
     <div
       role='image'
       alt={hexColor}
-      className={`color-grid__color-cell ${selectedCss}`}
+      className={`color-grid__color-cell ${cssClasses.join(' ')}`}
       style={{ backgroundColor: hexColor }}
-      onClick={onClick}></div>
+      onClick={onClick} />
   );
-};
+}
 
 ColorCell.propTypes = {
   hslColor: PropTypes.object.isRequired,

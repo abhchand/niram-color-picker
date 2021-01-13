@@ -326,6 +326,15 @@ describe('translating between state and url', () => {
             [null, 'FF0000', null]
           ]
         });
+
+        it('marks the color object as an override', () => {
+          mockSearchAs('?g=11AA11-11BB11-11CC11-11DD11&p0=,FFFFFF,');
+
+          const state = getStateFromUrl();
+
+          const overridenColor = state.primaryOverrides[0].valueAt(1);
+          expect(overridenColor.isOverride()).to.eql(true);
+        });
       });
 
       describe('invalid url', () => {

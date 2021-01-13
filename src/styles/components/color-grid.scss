@@ -29,7 +29,15 @@
   border-radius: 10px;
   cursor: pointer;
 }
+// Order is important here - the "selected" class
+// should have higher priority than the "override"
+// class if they are both applied
+.color-grid__color-cell--override {
+  box-sizing: border-box;
+  border: 5px solid $orange;
+}
 .color-grid__color-cell--selected {
   box-sizing: border-box;
   border: 5px solid #003057;
 }
+

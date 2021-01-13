@@ -63,6 +63,40 @@ const getColorGridAsJSON = () => {
 };
 
 /*
+ * Returns the positions of the overridden color in the format:
+ *
+ * [
+ *   {
+ *     gradientType: 'primary',
+ *     gradientIdx: 1,
+ *     positionIdx: 3
+ *   },
+ *   ...
+ * ]
+ *
+ */
+const getOverridentColorPositions = () => {
+  const positions = [];
+  const colorCells = global.wrapper.find('.color-grid__color-cell--override');
+
+  colorCells.forEach((colorCell) => {
+    /*
+     * See note in `getSelectedColorPosition` below about how
+     * we filter on parents
+     */
+    const td = colorCell.parents('td');
+
+    positions.push({
+      gradientType: td.prop('data-gradient-type'),
+      gradientIdx: td.prop('data-gradient-idx'),
+      positionIdx: td.prop('data-position-idx')
+    });
+  });
+
+  return positions;
+};
+
+/*
  * Returns the position of the selected color in the format:
  *
  * {
@@ -133,6 +167,7 @@ const setOverrideColor = (color, position) => {
 
 export {
   getColorGridAsJSON,
+  getOverridentColorPositions,
   getSelectedColorPosition,
   setSelectedColorPosition,
   setOverrideColor
