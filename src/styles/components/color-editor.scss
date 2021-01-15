@@ -49,12 +49,12 @@
 .color-editor__reset {
 }
 .color-editor__color-cell {
+  box-sizing: border-box;
   width: 120px;
   height: 120px;
   margin: 0 10px;
-  border-radius: 10px;
   border: 1px $blue solid;
-  box-sizing: border-box;
+  border-radius: 10px;
   cursor: pointer;
 }
 .color-editor__luminance-btn {
@@ -81,8 +81,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
 }
 
