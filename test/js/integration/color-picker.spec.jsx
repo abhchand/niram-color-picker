@@ -60,7 +60,8 @@ beforeEach(() => {
     },
     history: {
       replaceState: mockReplaceState
-    }
+    },
+    document: document
   });
 
   mockRandom(0.4);
@@ -268,16 +269,6 @@ describe('Color Picker', () => {
   });
 
   it('user can select a color from the color picker', async () => {
-    windowSpy.mockRestore();
-    windowSpy = mockWindowForReactComponent({
-      location: {
-        search: ''
-      },
-      history: {
-        replaceState: mockReplaceState
-      }
-    });
-
     openColorPicker();
     await setColorPickerValue(new HexColor('C9C9C9'));
     submitColorPicker();
