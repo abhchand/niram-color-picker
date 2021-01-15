@@ -133,7 +133,7 @@ describe('generating gradients', () => {
   });
 
   describe('generateColorGradientsFromBaseColors', () => {
-    it.only('generates color gradients from an array of base colors', () => {
+    it('generates color gradients from an array of base colors', () => {
       // See above explanation of how these gradients are derived
 
       const gradients = generateColorGradientsFromBaseColors([
