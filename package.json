@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "description": "A more substantial color picker",
   "scripts": {
-    "lint": "sh lint.sh",
-    "lintfix": "sh lint.sh -f",
-    "lintstaged": "sh lint.sh -s",
-    "lintstagedfix": "sh lint.sh -s -f",
+    "lint": "sh lint.sh -s",
+    "lintfix": "sh lint.sh -s -f",
+    "lintall": "sh lint.sh",
+    "lintfixall": "sh lint.sh -f",
     "testonly": "jest --no-cache --config test/js/jest.config.js",
     "test": "yarn run lint && yarn run testonly",
     "dev": "NODE_ENV=development webpack-dev-server --open --debug --output-pathinfo",
@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lintstaged"
+      "pre-commit": "yarn run lint"
     }
   },
   "repository": {
