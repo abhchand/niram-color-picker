@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ColorCell = (props) => {
+function ColorCell(props) {
   const { hslColor, onClick } = props;
 
   if (hslColor === null) {
@@ -16,9 +16,10 @@ const ColorCell = (props) => {
       alt={hexColor}
       className='color-editor__color-cell'
       style={{ backgroundColor: hexColor }}
-      onClick={onClick}></div>
+      onClick={onClick}
+    />
   );
-};
+}
 
 ColorCell.propTypes = {
   hslColor: PropTypes.object.isRequired,

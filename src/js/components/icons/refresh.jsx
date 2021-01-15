@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const RefreshIcon = (props) => {
+function RefreshIcon(props) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -16,7 +16,7 @@ const RefreshIcon = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 RefreshIcon.propTypes = {
   fillColor: PropTypes.string,

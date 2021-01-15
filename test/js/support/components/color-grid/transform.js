@@ -7,9 +7,8 @@ const toColor = (colorObj) => {
     return new HSLColor(colorObj.h, colorObj.s, colorObj.l);
   } else if (colorObj.r) {
     return new RGBColor(colorObj.r, colorObj.g, colorObj.b);
-  } 
-    return new HexColor(colorObj);
-  
+  }
+  return new HexColor(colorObj);
 };
 
 /*
@@ -69,7 +68,7 @@ const transformColorGridtoHex = (colorGrid) => {
       const rows = json[gradientType];
 
       result[gradientType] = rows.map((row) => {
-        return row.map((color) => new toColor(color).toHex().value());
+        return row.map((color) => toColor(color).toHex().value());
       });
     }
   }

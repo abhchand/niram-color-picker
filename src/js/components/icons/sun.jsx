@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const SunIcon = (props) => {
+function SunIcon(props) {
   return (
     <svg
       width={props.size}
@@ -83,7 +83,7 @@ const SunIcon = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 SunIcon.propTypes = {
   color: PropTypes.string,

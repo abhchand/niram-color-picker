@@ -38,15 +38,19 @@ class ExportModal extends React.Component {
           <ColorModelSelector
             colorModel={this.state.colorModel}
             setColorModel={this.setColorModel}
-            namespace={'color_export'}
+            namespace='color_export'
           />
           <div
             dangerouslySetInnerHTML={{
               __html: scss.split('\n').join('<br />')
             }}
-            className='color-export__scss'></div>
+            className='color-export__scss'
+          />
           <CopyToClipboard text={scss} fallbackOnPrompt={false} />
-          <button onClick={this.props.closeModal} className='button--hollow'>
+          <button
+            type='button'
+            onClick={this.props.closeModal}
+            className='button--hollow'>
             CLOSE
           </button>
         </div>

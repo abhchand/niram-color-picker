@@ -26,15 +26,12 @@ class Row extends React.Component {
     switch (gradientType) {
       case 'primary':
         return 'Primary';
-        break;
 
       case 'neutral':
         return 'Neutral';
-        break;
 
       case 'accent':
         return gradientIdx === 0 ? 'Accents' : null;
-        break;
 
       default:
         return 'Unknown';
@@ -78,9 +75,10 @@ class Row extends React.Component {
         })}
         <td className='refresh'>
           <button
-            className={'button--icon'}
+            type='button'
+            className='button--icon'
             onClick={this.onClickRefreshButton}>
-            <RefreshIcon fillColor={'#250E62'} />
+            <RefreshIcon fillColor='#250E62' />
           </button>
         </td>
       </tr>

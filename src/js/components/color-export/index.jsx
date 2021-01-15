@@ -1,7 +1,6 @@
 import { COLOR_GRID_UPDATED } from 'components/event-bus/events';
 import eventBus from 'components/event-bus';
 import ExportModal from './export-modal';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 class ColorExport extends React.Component {
@@ -57,7 +56,10 @@ class ColorExport extends React.Component {
 
     return (
       <div className='color-export'>
-        <button className='color-export__export' onClick={this.openModal}>
+        <button
+          type='button'
+          className='color-export__export'
+          onClick={this.openModal}>
           EXPORT SCSS →
         </button>
         {this.renderModal()}

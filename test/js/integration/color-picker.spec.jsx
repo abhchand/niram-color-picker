@@ -48,12 +48,12 @@ jest.mock('components/color-grid/constants', () => ({
   }
 }));
 
-let mockReplaceState, windowSpy;
+let _windowSpy, mockReplaceState;
 
 beforeEach(() => {
   mockReplaceState = jest.fn();
 
-  windowSpy = mockWindowForReactComponent({
+  _windowSpy = mockWindowForReactComponent({
     location: {
       pathname: '/',
       search: ''

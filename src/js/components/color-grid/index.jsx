@@ -1,24 +1,23 @@
 import {
+  COLOR_GRID_UPDATED,
+  OVERRIDE_SELECTED_COLOR,
+  RESET_SELECTED_COLOR,
+  UPDATE_SELECTED_COLOR
+} from 'components/event-bus/events';
+import {
   generateColorGradients,
   generateGrayGradients,
   generateNullGradients
 } from './gradients';
 import { getStateFromUrl, setUrlFromState } from './url';
-import eventBus from 'components/event-bus';
 import {
   GRADIENT_LEN,
   NUM_ACCENT_GRADIENTS,
   NUM_NEUTRAL_GRADIENTS,
   NUM_PRIMARY_GRADIENTS
 } from './constants';
-import PropTypes from 'prop-types';
+import eventBus from 'components/event-bus';
 import React from 'react';
-import {
-  COLOR_GRID_UPDATED,
-  OVERRIDE_SELECTED_COLOR,
-  RESET_SELECTED_COLOR,
-  UPDATE_SELECTED_COLOR
-} from 'components/event-bus/events';
 import Row from './row';
 
 class ColorGrid extends React.Component {
@@ -245,7 +244,7 @@ class ColorGrid extends React.Component {
 
       const isRowSelected =
         selectedColorCell.gradientType === gradientType &&
-        selectedColorCell.gradientIdx == gradientIdx;
+        selectedColorCell.gradientIdx === gradientIdx;
 
       return (
         <Row

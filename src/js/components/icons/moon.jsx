@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const MoonIcon = (props) => {
+function MoonIcon(props) {
   return (
     <svg
       width={props.size}
@@ -19,7 +19,7 @@ const MoonIcon = (props) => {
       </g>
     </svg>
   );
-};
+}
 
 MoonIcon.propTypes = {
   color: PropTypes.string,

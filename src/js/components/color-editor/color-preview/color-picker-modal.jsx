@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
-import RGBColor from 'models/rgb-color';
 import PropTypes from 'prop-types';
+import RGBColor from 'models/rgb-color';
 
 function ColorPickerModal(props) {
   const [rgb, setRgb] = useState(props.hslColor.toRGB().value());
