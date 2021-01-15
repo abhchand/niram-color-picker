@@ -116,7 +116,7 @@ describe('Color Picker', () => {
     // It has the correct exported SCSS
     openExportModal();
     selectColorModel('rgb');
-    expect(exportedSCSSText()).to.match(/\$primary_0_200: rgb\(64, 176, 95\)/u);
+    expect(exportedSCSSText()).to.match(/\$primary_0_200: rgb\(64, 176, 82\)/u);
   });
 
   it('user can edit the input values', () => {
