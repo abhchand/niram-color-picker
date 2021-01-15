@@ -36,11 +36,12 @@ run_cmd () {
 #
 
 PRETTIER="npx prettier"
-FILES="src/js/*"
+FILES="src/js/\*"
 OPTS=""
-HAS_FILES=0
+HAS_FILES=1
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
+  HAS_FILES=0
   FILES=""
   for file in $(git diff --diff-filter=d --cached --name-only | grep "\.js"); do
     FILES="${FILES} $file"
@@ -51,6 +52,7 @@ fi
 if [ "$FIX_FILES" = 1 ]; then OPTS="$OPTS --write"; else OPTS="$OPTS --check"; fi
 
 CMD="$PRETTIER $OPTS $FILES"
+echo $CMD
 if [ "$HAS_FILES" = 1 ]; then run_cmd "$CMD" "prettier"; fi
 
 
@@ -59,11 +61,12 @@ if [ "$HAS_FILES" = 1 ]; then run_cmd "$CMD" "prettier"; fi
 #
 
 ESLINT="npx eslint"
-FILES=""
+FILES="."
 OPTS='--ext .js,.jsx'
-HAS_FILES=0
+HAS_FILES=1
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
+  HAS_FILES=0
   FILES=""
   for file in $(git diff --diff-filter=d --cached --name-only | grep "\.js"); do
     FILES="${FILES} $file"
@@ -84,9 +87,10 @@ if [ "$HAS_FILES" = 1 ]; then run_cmd "$CMD" "eslint"; fi
 STYLELINT="npx stylelint"
 FILES="src/styles/*"
 OPTS=""
-HAS_FILES=0
+HAS_FILES=1
 
 if [ "$RUN_ONLY_STAGED_FILES" = 1 ]; then
+  HAS_FILES=0
   FILES=""
   for file in $(git diff --diff-filter=d --cached --name-only | grep "\.scss"); do
     FILES="${FILES} $file"
