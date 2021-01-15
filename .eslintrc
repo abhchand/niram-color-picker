@@ -64,6 +64,8 @@
     react/jsx-no-literals:                  "off",
     react/jsx-one-expression-per-line:      "off",
     react/jsx-sort-props:                   "off",
+    react/no-array-index-key:               "off",
+    react/no-danger:                        "off",
     react/no-set-state:                     "off",
     react/require-default-props:            "off",
     react/require-optimization:             "off",
